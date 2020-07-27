@@ -13,6 +13,8 @@
 
 <br/>
 
+    $ npm install @apollo/client
+
 ---
 
 <br/>

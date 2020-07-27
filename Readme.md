@@ -72,14 +72,14 @@ v1.12.1
 
 ```
 $ {
-minikube --profile my-profile config set memory 8192
-minikube --profile my-profile config set cpus 4
+    minikube --profile my-profile config set memory 8192
+    minikube --profile my-profile config set cpus 4
 
-// minikube --profile my-profile config set vm-driver virtualbox
-minikube --profile my-profile config set vm-driver docker
+    // minikube --profile my-profile config set vm-driver virtualbox
+    minikube --profile my-profile config set vm-driver docker
 
-minikube --profile my-profile config set kubernetes-version v1.18.6
-minikube start --profile my-profile
+    minikube --profile my-profile config set kubernetes-version v1.18.6
+    minikube start --profile my-profile
 }
 ```
 
