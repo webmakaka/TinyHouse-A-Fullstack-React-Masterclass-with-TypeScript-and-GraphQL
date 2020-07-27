@@ -2,6 +2,11 @@ FROM node:12.16.3-alpine3.9
 
 WORKDIR /app
 COPY package.json ./
+
+# without next command react-scripts are finishing and container restarts
+# Possible bug and will be fixed in the future
+ENV CI=true
+
 #RUN npm install --only=prod --silent
 RUN npm install --silent
 COPY ./ ./
