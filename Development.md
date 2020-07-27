@@ -2,6 +2,15 @@
 
 <br/>
 
+## Module 2
+
+<br/>
+
+### 09. React Router
+
+    $ cd client
+    $ npm install react-router-dom @types/react-router-dom
+
 <br/>
 
 ---

@@ -28,7 +28,3 @@ const mount = async (app: Application) => {
 };
 
 mount(express());
-
-// Note: You will need to introduce a .env file at the root of the project
-// that has the PORT, DB_USER, DB_USER_PASSWORD, and DB_CLUSTER environment variables defined.
-// Otherwise, the server will not be able to start and/or connect to the database

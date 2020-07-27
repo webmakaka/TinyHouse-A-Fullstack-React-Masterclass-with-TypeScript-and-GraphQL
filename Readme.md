@@ -108,6 +108,12 @@ minikube start --profile my-profile
 
 ## How to run the app
 
+<br/>
+
+commit: 3934dd627e244a12907ea7c4595cb52474a47e18
+
+<br/>
+
     $ cd skaffold
 
     $ docker login
