@@ -19,7 +19,13 @@
 
 ## Module 3
 
+<br/>
+
 ### 11. Database Collection Structure
+
+<br/>
+
+### 12. Database Document Structure
 
 ---
 
