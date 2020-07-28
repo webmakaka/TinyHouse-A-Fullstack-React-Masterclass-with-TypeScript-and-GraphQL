@@ -40,6 +40,46 @@
     # cd /app/
     # npm run seed
 
+<br/>
+
+## Module 4
+
+<br/>
+
+### 15. OAuth 2.0
+
+https://developers.google.com/identity/protocols/oauth2
+
+<br/>
+
+### 16. Google Sign-In (OAuth)
+
+console.developers.google.com
+
+New Project
+
+Credentials --> Create Credentials --> Oauth client id --> Configure consent screen --> UserType --> External --> AppName: TinyHouse --> Save
+
+Credentials --> Create Credentials --> Application type : Web Application, Name: TinyHouse Web Client, Authorised JavaScript origins : https://tinyhouse.dev, Authorised redirect URIs : https://tinyhouse.dev/login --> Create
+
+<br/>
+
+### 17. Google Sign-In GraphQL Fields
+
+https://tinyhouse.dev/api/
+
+```
+query{
+  authUrl
+}
+```
+
+```
+mutation{
+  logIn
+}
+```
+
 ---
 
 <br/>
