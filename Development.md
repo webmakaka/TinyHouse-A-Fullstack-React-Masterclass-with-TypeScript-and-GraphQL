@@ -15,6 +15,12 @@
 
     $ npm install @apollo/client
 
+<br/>
+
+## Module 3
+
+### 11. Database Collection Structure
+
 ---
 
 <br/>

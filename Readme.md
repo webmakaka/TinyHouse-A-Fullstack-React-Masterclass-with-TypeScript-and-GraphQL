@@ -144,23 +144,17 @@ Need to update my docker image name webmakaka/tinyhouse\*\*\* to your in scripts
 **chrome browser**
 
 ```
-client --> https://tinyhouse.dev/
-graphql - https://tinyhouse.dev/api/
+client --->  https://tinyhouse.dev/
+graphql -->  https://tinyhouse.dev/api/
 ```
 
 <br/>
 
 type: **thisisunsafe** in the browser window with security warning.
 
-<!--
-
-# apk add mongodb
-
--->
-
 <br/>
 
-Expected result:
+**Expected result:**
 
 ![Application](/img/pic-started-01.png?raw=true)
 
