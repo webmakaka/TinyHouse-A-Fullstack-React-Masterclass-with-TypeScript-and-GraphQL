@@ -27,6 +27,19 @@
 
 ### 12. Database Document Structure
 
+<br/>
+
+### 13. Seed & Clear Data from MongoDB
+
+<br/>
+
+    $ kubectl exec -it tinyhouse-server-deployment-5744884c7c-lf8kp sh
+
+<br/>
+
+    # cd /app/
+    # npm run seed
+
 ---
 
 <br/>
