@@ -80,6 +80,23 @@ mutation{
 }
 ```
 
+<br/>
+
+### 18. Using Google Sign-In & People API
+
+    $ cd server
+    $ npm install googleapis
+
+https://console.developers.google.com/
+
+Library --> Google People API --> Enable
+
+<br/>
+
+    $ kubectl create secret generic google-client-id --from-literal=GOOGLE_CLIENT_ID=<GOOGLE_CLIENT_ID>
+
+    $ kubectl create secret generic google-client-secret --from-literal=GOOGLE_CLIENT_SECRET=<GOOGLE_CLIENT_SECRET>
+
 ---
 
 <br/>

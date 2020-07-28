@@ -20,3 +20,15 @@ spec:
               value: 'mongodb://tinyhouse-mongo-svc:27017'
             - name: PORT
               value: '3000'
+            - name: PUBLIC_URL
+              value: 'https://tinyhouse.dev'
+            - name: GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: google-client-id
+                  key: GOOGLE_CLIENT_ID
+            - name: GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: google-client-secret
+                  key: GOOGLE_CLIENT_SECRET

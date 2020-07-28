@@ -6,8 +6,24 @@ import { connectDatabase } from './database';
 import { typeDefs, resolvers } from './graphql';
 
 const envChecks = async () => {
+  if (!process.env.PORT) {
+    throw new Error('Error: PORT must be defined');
+  }
+
   if (!process.env.MONGO_URI) {
     throw new Error('Error: MONGO_URI must be defined');
+  }
+
+  if (!process.env.PUBLIC_URL) {
+    throw new Error('Error: PUBLIC_URL must be defined');
+  }
+
+  if (!process.env.GOOGLE_CLIENT_ID) {
+    throw new Error('Error: GOOGLE_CLIENT_ID must be defined');
+  }
+
+  if (!process.env.GOOGLE_CLIENT_SECRET) {
+    throw new Error('Error: GOOGLE_CLIENT_SECRET must be defined');
   }
 };
 
