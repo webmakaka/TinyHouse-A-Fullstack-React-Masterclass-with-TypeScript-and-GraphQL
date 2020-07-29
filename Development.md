@@ -111,7 +111,20 @@ query{
 
 <br/>
 
-![Application](/img/pic-started-01.png?raw=true)
+![Application](/img/pic19.png?raw=true)
+
+<br/>
+
+### 20. Building the UI for Login
+
+    $ npm run codegen:schema
+    $ npm run codegen:generate
+
+https://tinyhouse.dev/login
+
+<br/>
+
+![Application](/img/pic20.png?raw=true)
 
 ---
 
