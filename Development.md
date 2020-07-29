@@ -97,6 +97,22 @@ Library --> Google People API --> Enable
 
     $ kubectl create secret generic google-client-secret --from-literal=GOOGLE_CLIENT_SECRET=<GOOGLE_CLIENT_SECRET>
 
+<br/>
+
+### 19. Building the Authentication Resolvers
+
+https://tinyhouse.dev/api/
+
+```
+query{
+  authUrl
+}
+```
+
+<br/>
+
+![Application](/img/pic-started-01.png?raw=true)
+
 ---
 
 <br/>
