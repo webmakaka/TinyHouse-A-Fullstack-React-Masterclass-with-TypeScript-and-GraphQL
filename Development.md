@@ -134,6 +134,18 @@ https://tinyhouse.dev/login
 
 ![Application](/img/pic21.png?raw=true)
 
+<br/>
+
+### 22. Building the AppHeader & Logout
+
+https://ant.design/components/icon/
+
+    $ npm install --save @ant-design/icons
+
+<br/>
+
+![Application](/img/pic22.png?raw=true)
+
 ---
 
 <br/>
