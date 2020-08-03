@@ -178,6 +178,10 @@ https://ant.design/components/icon/
 
 ![Application](/img/pic23.png?raw=true)
 
+<br/>
+
+### 28. Adding the Viewer Cookie on the Client
+
 ---
 
 <br/>

@@ -30,6 +30,10 @@ const envChecks = async () => {
   if (!process.env.COOKIE_PARSER_SECRET) {
     throw new Error('Error: COOKIE_PARSER_SECRET must be defined');
   }
+
+  if (!process.env.NODE_ENV) {
+    throw new Error('Error: NODE_ENV must be defined');
+  }
 };
 
 envChecks();
