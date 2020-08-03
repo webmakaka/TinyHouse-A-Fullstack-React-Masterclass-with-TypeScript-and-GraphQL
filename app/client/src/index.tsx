@@ -24,13 +24,15 @@ import { Viewer } from './lib/types';
 import './styles/index.css';
 import { setContext } from '@apollo/client/link/context';
 
+// https://www.apollographql.com/docs/react/networking/authentication/
+
 const httpLink = createHttpLink({
   uri: '/api',
 });
 
-//www.apollographql.com/docs/react/networking/authentication/
-https: const authLink = setContext((_, { headers }) => {
+const authLink = setContext((_, { headers }) => {
   const token = sessionStorage.getItem('token') || null;
+
   return {
     headers: {
       ...headers,

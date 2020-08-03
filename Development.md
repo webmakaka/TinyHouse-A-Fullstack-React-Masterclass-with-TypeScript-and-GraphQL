@@ -190,6 +190,22 @@ https://ant.design/components/icon/
 
 ![Application](/img/pic24.png?raw=true)
 
+<br/>
+
+### 30. Module 5 Summary
+
+<br/>
+
+## Module 6
+
+<br/>
+
+### 31. Module 6 Introduction
+
+<br/>
+
+### 32. User GraphQL Fields
+
 ---
 
 <br/>
