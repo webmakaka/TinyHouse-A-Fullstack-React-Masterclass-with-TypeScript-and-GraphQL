@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { ApolloProvider, useMutation } from '@apollo/react-hooks';
 import { LOG_IN } from 'lib/graphql/mutations';
 import {
@@ -22,10 +22,40 @@ import {
 } from './sections';
 import { Viewer } from './lib/types';
 import './styles/index.css';
+import { setContext } from '@apollo/client/link/context';
+
+const httpLink = createHttpLink({
+  uri: '/api',
+});
+
+//www.apollographql.com/docs/react/networking/authentication/
+https: const authLink = setContext((_, { headers }) => {
+  const token = sessionStorage.getItem('token') || null;
+  return {
+    headers: {
+      ...headers,
+      'X-CSRF-TOKEN': token || '',
+      // authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+// const client = new ApolloClient({
+//   uri: '/api',
+//   request: async (operation) => {
+//     const token = sessionStorage.getItem('token');
+//     operation.setContext({
+//       headers: {
+//         'X-CSRF-TOKEN': token || '',
+//       },
+//     });
+//   },
+//   cache: new InMemoryCache({}),
+// });
 
 const client = new ApolloClient({
-  uri: '/api',
-  cache: new InMemoryCache({}),
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
 });
 
 const initialViewer: Viewer = {
@@ -42,6 +72,12 @@ const App = () => {
     onCompleted: (data) => {
       if (data && data.logIn) {
         setViewer(data.logIn);
+
+        if (data.logIn.token) {
+          sessionStorage.setItem('token', data.logIn.token);
+        } else {
+          sessionStorage.removeItem('token');
+        }
       }
     },
   });

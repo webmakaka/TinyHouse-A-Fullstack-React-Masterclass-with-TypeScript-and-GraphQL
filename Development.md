@@ -182,7 +182,13 @@ https://ant.design/components/icon/
 
 ### 28. Adding the Viewer Cookie on the Client
 
+<br/>
 
+### 29. X-CSRF Token
+
+<br/>
+
+![Application](/img/pic24.png?raw=true)
 
 ---
 
