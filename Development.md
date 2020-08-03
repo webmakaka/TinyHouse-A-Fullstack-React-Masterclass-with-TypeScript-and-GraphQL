@@ -146,6 +146,38 @@ https://ant.design/components/icon/
 
 ![Application](/img/pic22.png?raw=true)
 
+<br/>
+
+### 23. Module 4 Summary
+
+<br/>
+
+## Module 5
+
+<br/>
+
+### 24. Module 5 Introduction
+
+<br/>
+
+### 25. Cookies & Login Sessions
+
+<br/>
+
+### 26. localStorage vs. sessionStorage vs. cookies
+
+<br/>
+
+### 27. Adding the Viewer Cookie on the Server
+
+    $ cd server
+    $ npm install cookie-parser
+    $ npm install --save-dev @types/cookie-parser
+
+<br/>
+
+![Application](/img/pic23.png?raw=true)
+
 ---
 
 <br/>

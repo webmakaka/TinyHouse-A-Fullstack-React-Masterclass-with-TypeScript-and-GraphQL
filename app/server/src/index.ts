@@ -2,6 +2,7 @@ require('dotenv').config();
 
 import express, { Application } from 'express';
 import { ApolloServer } from 'apollo-server-express';
+import cookieParser from 'cookie-parser';
 import { connectDatabase } from './database';
 import { typeDefs, resolvers } from './graphql';
 
@@ -25,16 +26,23 @@ const envChecks = async () => {
   if (!process.env.GOOGLE_CLIENT_SECRET) {
     throw new Error('Error: GOOGLE_CLIENT_SECRET must be defined');
   }
+
+  if (!process.env.COOKIE_PARSER_SECRET) {
+    throw new Error('Error: COOKIE_PARSER_SECRET must be defined');
+  }
 };
 
 envChecks();
 
 const mount = async (app: Application) => {
   const db = await connectDatabase();
+
+  app.use(cookieParser(process.env.COOKIE_PARSER_SECRET));
+
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: () => ({ db }),
+    context: ({ req, res }) => ({ db, req, res }),
   });
 
   server.applyMiddleware({ app, path: '/api' });
