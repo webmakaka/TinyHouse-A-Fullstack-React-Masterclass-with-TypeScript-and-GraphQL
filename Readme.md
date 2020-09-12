@@ -37,7 +37,7 @@ $ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/mini
 
 ```
 $ minikube version
-minikube version: v1.12.1
+minikube version: v1.13.0
 ```
 
 <br/>
@@ -78,7 +78,7 @@ $ {
     // minikube --profile my-profile config set vm-driver virtualbox
     minikube --profile my-profile config set vm-driver docker
 
-    minikube --profile my-profile config set kubernetes-version v1.18.6
+    minikube --profile my-profile config set kubernetes-version v1.18.8
     minikube start --profile my-profile
 }
 ```
@@ -109,6 +109,8 @@ $ {
 ## How to run the app
 
 <br/>
+
+### Run app from part 1
 
 commit: 3934dd627e244a12907ea7c4595cb52474a47e18
 
@@ -165,6 +167,50 @@ type: **thisisunsafe** in the browser window with security warning.
     $ minikube --profile my-profile stop && minikube --profile my-profile delete
 
 <hr/>
+
+<br/>
+
+<br/>
+
+### Run app from part 2
+
+https://console.developers.google.com/
+
+**New Project**
+
+Credentials --> Create Credentials --> Oauth client id --> Configure consent screen --> UserType --> External --> AppName: TinyHouse --> Save
+
+Credentials --> Create Credentials --> Application type : Web Application, Name: TinyHouse Web Client, Authorised JavaScript origins : https://tinyhouse.dev, Authorised redirect URIs : https://tinyhouse.dev/login --> Create
+
+<br/>
+
+https://console.developers.google.com/
+
+Library --> Google People API --> Enable
+
+<br/>
+
+    $ kubectl create secret generic google-client-id --from-literal=GOOGLE_CLIENT_ID=<GOOGLE_CLIENT_ID>
+
+    $ kubectl create secret generic google-client-secret --from-literal=GOOGLE_CLIENT_SECRET=<GOOGLE_CLIENT_SECRET>
+
+<br/>
+
+    $ cd skaffold
+    $ skaffold dev
+
+<br/>
+
+**chrome browser**
+
+```
+client --->  https://tinyhouse.dev/
+graphql -->  https://tinyhouse.dev/api/
+```
+
+<br/>
+
+type: **thisisunsafe** in the browser window with security warning.
 
 <br/>
 
