@@ -210,6 +210,44 @@ https://ant.design/components/icon/
 
 ### 33. Modifying the User, Listing, and Booking GraphQL TypeDefs
 
+<br/>
+
+### 34. Building the User Resolvers
+
+```
+query{
+  user(id: "112614995982215684080"){
+      name,
+      avatar,
+      income,
+      bookings(limit:10, page: 1) {
+          total
+      },
+      listings(limit:10, page: 1) {
+          total
+      }
+  }
+}
+```
+
+**returns:**
+
+```
+{
+  "data": {
+    "user": {
+      "name": "Marley Marley",
+      "avatar": "https://lh6.googleusercontent.com/-g_bXa-skZss/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmRS6xYvUAI2ZS0baheVKHb_l64zg/s100/photo.jpg",
+      "income": null,
+      "bookings": null,
+      "listings": {
+        "total": 0
+      }
+    }
+  }
+}
+```
+
 ---
 
 <br/>
