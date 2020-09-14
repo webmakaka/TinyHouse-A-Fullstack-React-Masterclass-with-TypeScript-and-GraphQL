@@ -63,7 +63,7 @@ $ chmod +x skaffold
 $ sudo mv skaffold /usr/local/bin
 
 $ skaffold version
-v1.12.1
+v1.14.0
 ```
 
 <br/>
@@ -188,6 +188,8 @@ https://console.developers.google.com/
 
 Library --> Google People API --> Enable
 
+People API --> Credentials --> TinyHouse Web client
+
 <br/>
 
     $ kubectl create secret generic google-client-id --from-literal=GOOGLE_CLIENT_ID=<GOOGLE_CLIENT_ID>
@@ -197,6 +199,9 @@ Library --> Google People API --> Enable
 <br/>
 
     $ cd skaffold
+
+    $ docker login
+
     $ skaffold dev
 
 <br/>

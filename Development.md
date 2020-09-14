@@ -206,6 +206,10 @@ https://ant.design/components/icon/
 
 ### 32. User GraphQL Fields
 
+<br/>
+
+### 33. Modifying the User, Listing, and Booking GraphQL TypeDefs
+
 ---
 
 <br/>
