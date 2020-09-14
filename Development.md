@@ -214,6 +214,8 @@ https://ant.design/components/icon/
 
 ### 34. Building the User Resolvers
 
+take id from web app -> profile
+
 ```
 query{
   user(id: "112614995982215684080"){
@@ -247,6 +249,24 @@ query{
   }
 }
 ```
+
+<br/>
+
+### 35. The UserProfile React Component
+
+    $ cd client
+    $ npm run codegen:schema
+    $ npm run codegen:generate
+
+<br/>
+
+<br/>
+
+![Application](/img/pic35-1.png?raw=true)
+
+<br/>
+
+![Application](/img/pic35-2.png?raw=true)
 
 ---
 

@@ -219,6 +219,21 @@ type: **thisisunsafe** in the browser window with security warning.
 
 <br/>
 
+### Seed & Clear Data from MongoDB
+
+<br/>
+
+    $ kubectl get pods
+
+    $ kubectl exec -it tinyhouse-server-deployment-5744884c7c-lf8kp sh
+
+<br/>
+
+    # cd /app/
+    # npm run seed
+
+<br/>
+
 ### [Development step by step](./Development.md)
 
 <br/>
