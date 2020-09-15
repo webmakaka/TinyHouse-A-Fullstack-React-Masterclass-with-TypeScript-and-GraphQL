@@ -260,13 +260,27 @@ query{
 
 <br/>
 
-<br/>
-
 ![Application](/img/pic35-1.png?raw=true)
 
 <br/>
 
 ![Application](/img/pic35-2.png?raw=true)
+
+<br/>
+
+### 36. The UserListings & UserBookings React Components
+
+    $ cd client
+    $ npm run codegen:schema
+    $ npm run codegen:generate
+
+<br/>
+
+https://tinyhouse.dev/user/5d378db94e84753160e08b57
+
+<br/>
+
+![Application](/img/pic36-1.png?raw=true)
 
 ---
 

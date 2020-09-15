@@ -10,7 +10,7 @@ import {
 import { Database, User } from './../../../lib/types';
 import { authorize } from './../../../lib/utils';
 
-export const userResovers: IResolvers = {
+export const userResolvers: IResolvers = {
   Query: {
     user: async (
       _root: undefined,
@@ -63,7 +63,7 @@ export const userResovers: IResolvers = {
           _id: { $in: user.bookings },
         });
 
-        cursor = cursor.skip(page > 0 ? page - 1 * limit : 0);
+        cursor = cursor.skip(page > 0 ? (page - 1) * limit : 0);
         cursor = cursor.limit(limit);
 
         data.total = await cursor.count();

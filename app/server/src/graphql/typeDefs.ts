@@ -5,7 +5,7 @@ export const typeDefs = gql`
     id: ID!
     listing: Listing!
     tenant: User!
-    checIn: String!
+    checkIn: String!
     checkOut: String!
   }
 

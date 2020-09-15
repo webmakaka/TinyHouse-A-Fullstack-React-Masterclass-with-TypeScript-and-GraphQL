@@ -401,7 +401,7 @@
             "deprecationReason": null
           },
           {
-            "name": "checIn",
+            "name": "checkIn",
             "description": "",
             "args": [],
             "type": {
