@@ -302,8 +302,15 @@ https://tinyhouse.dev/user/5d378db94e84753160e08b57
 
 ### 40. Building the Listing Resolvers
 
-**Inside server container**
+    $ kubectl get pods
 
+    $ kubectl exec -it tinyhouse-server-deployment-5744884c7c-lf8kp sh
+
+<br/>
+
+**Inside container**
+
+    # cd /app/
     # npm run clear
     # npm run seed
 
@@ -356,6 +363,14 @@ query{
   }
 }
 ```
+
+<br/>
+
+### 41. Querying for listing data
+
+    $ cd client
+    $ npm run codegen:schema
+    $ npm run codegen:generate
 
 ---
 
