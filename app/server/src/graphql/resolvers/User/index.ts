@@ -21,16 +21,17 @@ export const userResolvers: IResolvers = {
         const user = await db.users.findOne({ _id: id });
 
         if (!user) {
-          throw new Error("User can't be found");
+          throw new Error("[APP]: User can't be found");
         }
 
         const viewer = await authorize(db, req);
+
         if (viewer && viewer._id === user._id) {
           user.authorized = true;
         }
         return user;
       } catch (error) {
-        throw new Error(`Failed to query user: ${error}`);
+        throw new Error(`[APP]: Failed to query user: ${error}`);
       }
     },
   },
@@ -71,7 +72,7 @@ export const userResolvers: IResolvers = {
 
         return data;
       } catch (error) {
-        throw new Error(`Failed to query user bookings: ${error}`);
+        throw new Error(`[APP]: Failed to query user bookings: ${error}`);
       }
     },
     listings: async (
@@ -97,7 +98,7 @@ export const userResolvers: IResolvers = {
 
         return data;
       } catch (error) {
-        throw new Error(`Failed to query user listings: ${error}`);
+        throw new Error(`[APP]: Failed to query user listings: ${error}`);
       }
     },
   },

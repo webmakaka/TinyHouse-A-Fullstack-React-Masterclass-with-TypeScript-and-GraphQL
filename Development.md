@@ -298,6 +298,65 @@ https://tinyhouse.dev/user/5d378db94e84753160e08b57
 
 ### 39. Listing GraphQL Fields
 
+<br/>
+
+### 40. Building the Listing Resolvers
+
+**Inside server container**
+
+    # npm run clear
+    # npm run seed
+
+```
+query{
+  listing(id:"5d378db94e84753160e08b33") {
+    id
+    title
+    description
+    image
+    host {
+      id
+    }
+    type
+    address
+    city
+    bookings (limit:4, page: 1) {
+      total
+    }
+    bookingsIndex
+    price
+    numOfGuests
+  }
+}
+```
+
+<br/>
+
+**response:**
+
+```
+{
+  "data": {
+    "listing": {
+      "id": "5d378db94e84753160e08b33",
+      "title": "Luxury condo suite located in the heart of downtown Toronto",
+      "description": "Luxury condo suite located in the heart of the city with building pool/gym/sauna available 24/7. Buses, subway, and all other amenities are available close by. Booking comes with 1 available parking spot in building underground.",
+      "image": "https://res.cloudinary.com/tiny-house/image/upload/v1560641352/mock/Toronto/toronto-listing-4_ei1ngz.jpg",
+      "host": {
+        "id": "5d378db94e84753160e08b59"
+      },
+      "type": "APARTMENT",
+      "address": "9531 Prince Road, Toronto, ON, CA",
+      "city": "Toronto",
+      "bookings": null,
+      "bookingsIndex": "{}",
+      "price": 21292,
+      "numOfGuests": 4
+    }
+  }
+}
+```
+
 ---
 
 <br/>

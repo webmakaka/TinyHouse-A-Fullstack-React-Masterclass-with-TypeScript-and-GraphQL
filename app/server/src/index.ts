@@ -8,31 +8,31 @@ import { typeDefs, resolvers } from './graphql';
 
 const envChecks = async () => {
   if (!process.env.PORT) {
-    throw new Error('Error: PORT must be defined');
+    throw new Error('[APP]: PORT must be defined');
   }
 
   if (!process.env.MONGO_URI) {
-    throw new Error('Error: MONGO_URI must be defined');
+    throw new Error('[APP]: MONGO_URI must be defined');
   }
 
   if (!process.env.PUBLIC_URL) {
-    throw new Error('Error: PUBLIC_URL must be defined');
+    throw new Error('[APP]: PUBLIC_URL must be defined');
   }
 
   if (!process.env.GOOGLE_CLIENT_ID) {
-    throw new Error('Error: GOOGLE_CLIENT_ID must be defined');
+    throw new Error('[APP]: GOOGLE_CLIENT_ID must be defined');
   }
 
   if (!process.env.GOOGLE_CLIENT_SECRET) {
-    throw new Error('Error: GOOGLE_CLIENT_SECRET must be defined');
+    throw new Error('[APP]: GOOGLE_CLIENT_SECRET must be defined');
   }
 
   if (!process.env.COOKIE_PARSER_SECRET) {
-    throw new Error('Error: COOKIE_PARSER_SECRET must be defined');
+    throw new Error('[APP]: COOKIE_PARSER_SECRET must be defined');
   }
 
   if (!process.env.NODE_ENV) {
-    throw new Error('Error: NODE_ENV must be defined');
+    throw new Error('[APP]: NODE_ENV must be defined');
   }
 };
 

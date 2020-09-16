@@ -42,7 +42,7 @@ const logInViaGoogle = async (
   const { user } = await Google.logIn(code);
 
   if (!user) {
-    throw new Error('Google login error');
+    throw new Error('[APP]: Google login error');
   }
 
   const userNamesList = user.names && user.names.length ? user.names : null;
@@ -116,7 +116,7 @@ export const viewerResolvers: IResolvers = {
       try {
         return Google.authUrl;
       } catch (error) {
-        throw new Error(`[App] Failed to query Google Auth Url: ${error}`);
+        throw new Error(`[APP]: Failed to query Google Auth Url: ${error}`);
       }
     },
   },
@@ -147,7 +147,7 @@ export const viewerResolvers: IResolvers = {
           didRequest: true,
         };
       } catch (error) {
-        throw new Error(`Failed ot log in ${error}`);
+        throw new Error(`[APP]: Failed ot log in ${error}`);
       }
     },
     logOut: (
@@ -159,7 +159,7 @@ export const viewerResolvers: IResolvers = {
         res.clearCookie('viewer', cookieOptions);
         return { didRequest: true };
       } catch (error) {
-        throw new Error(`Failed to log out: ${error}`);
+        throw new Error(`[APP]: Failed to log out: ${error}`);
       }
     },
   },
