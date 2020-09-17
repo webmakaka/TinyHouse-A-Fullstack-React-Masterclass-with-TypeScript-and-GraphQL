@@ -372,6 +372,16 @@ query{
     $ npm run codegen:schema
     $ npm run codegen:generate
 
+<br/>
+
+### 42. ListingDetails & ListingBookings
+
+https://tinyhouse.dev/listing/5d378db94e84753160e08b33
+
+<br/>
+
+![Application](/img/pic42.png?raw=true)
+
 ---
 
 <br/>

@@ -186,7 +186,7 @@ Credentials --> Create Credentials --> Application type : Web Application, Name:
 
 https://console.developers.google.com/
 
-Library --> Google People API --> Enable
+Library --> Google People API --> Enable / Manage
 
 People API --> Credentials --> TinyHouse Web client
 

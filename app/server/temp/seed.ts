@@ -791,6 +791,7 @@ const seed = async () => {
     }
 
     console.log('[seed] : success');
+    return;
   } catch {
     throw new Error('[APP]: Failed to seed database');
   }
