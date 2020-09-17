@@ -393,6 +393,18 @@ https://tinyhouse.dev/listing/5d378db94e84753160e08b33
 
 ![Application](/img/pic43.png?raw=true)
 
+<br/>
+
+### 44. Module 7 Summary
+
+<br/>
+
+## Module 8
+
+<br/>
+
+### 45. Module 8 Introduction
+
 ---
 
 <br/>
