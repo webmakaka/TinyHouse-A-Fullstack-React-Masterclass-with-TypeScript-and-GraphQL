@@ -382,6 +382,17 @@ https://tinyhouse.dev/listing/5d378db94e84753160e08b33
 
 ![Application](/img/pic42.png?raw=true)
 
+<br/>
+
+### 43. The ListingCreateBooking React Component
+
+    $ cd client
+    $ npm install moment
+
+<br/>
+
+![Application](/img/pic43.png?raw=true)
+
 ---
 
 <br/>

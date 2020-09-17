@@ -25,9 +25,10 @@ const clear = async () => {
     }
 
     console.log('[clear] : success');
-    return;
   } catch {
     throw new Error('[APP]: Failed to clear database');
+  } finally {
+    process.exit();
   }
 };
 

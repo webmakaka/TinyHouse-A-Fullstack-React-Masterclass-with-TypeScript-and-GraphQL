@@ -29,8 +29,8 @@
   },
   "scripts": {
     "start": "nodemon src/index.ts",
-    "seed": "ts-node temp/seed.ts",
-    "clear": "ts-node temp/clear.ts",
+    "seed": "ts-node seed/seed.ts",
+    "clear": "ts-node seed/clear.ts",
     "build": "tsc -p ./"
   }
 }
