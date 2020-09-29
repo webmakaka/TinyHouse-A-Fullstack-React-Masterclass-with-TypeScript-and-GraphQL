@@ -1,0 +1,39 @@
+name: Build and Deploy Client
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+    paths:
+      - 'app/client/**'
+
+jobs:
+  build:
+    name: Build Client
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+
+      # DOCKERHUB
+
+      - name: Build the Docker container image
+        run: docker build ./app/client -f ./app/client/Dockerfile.prod -t webmakaka/tinyhouse-client:latest
+      - name: Push the image to hub.docker.com
+        run: |
+          docker login -u webmakaka -p "${DOCKER_HUB_PASS}"
+          docker push webmakaka/tinyhouse-client:latest
+        env:
+          DOCKER_HUB_PASS: ${{ secrets.DOCKER_HUB_PASS }}
+# Github Package Registry (GPR)
+
+# - name: Build the Docker container image
+#   run: docker build ./client -f ./client/Dockerfile -t docker.pkg.github.com/marley-nodejs/mern-stack-front-to-back-v2.0/client.anketa.info:latest
+
+# - name: Push the image to Github Package Registry (GPR)
+#   run: |
+#     docker login docker.pkg.github.com -u publisher -p "${GITHUB_PACKAGE_REGISTRY_TOKEN}"
+#     docker push docker.pkg.github.com/marley-nodejs/mern-stack-front-to-back-v2.0/client.anketa.info:latest
+#   env:
+#     GITHUB_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
