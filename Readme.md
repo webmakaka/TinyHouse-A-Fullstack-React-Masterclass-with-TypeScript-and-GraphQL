@@ -7,6 +7,9 @@ https://www.tinyhouse.app/
 
 <br/>
 
+**Current Project Code Quality**:  
+https://sonarcloud.io/dashboard?id=webmakaka_TinyHouse-A-Fullstack-React-Masterclass-with-TypeScript-and-GraphQL
+
 <br/>
 
 ## How to run apps
@@ -63,7 +66,7 @@ $ chmod +x skaffold
 $ sudo mv skaffold /usr/local/bin
 
 $ skaffold version
-v1.14.0
+v1.15.0
 ```
 
 <br/>
