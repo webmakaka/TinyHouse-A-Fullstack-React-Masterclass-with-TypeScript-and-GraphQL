@@ -14,7 +14,7 @@ https://sonarcloud.io/dashboard?id=webmakaka_TinyHouse-A-Fullstack-React-Masterc
 
 ## How to run apps
 
-I am working in ubuntu linux 18.04.
+I am working in ubuntu 20.04.1 LTS
 
 Docker, Minikube, Kubectl, Skaffold should be installed.
 
