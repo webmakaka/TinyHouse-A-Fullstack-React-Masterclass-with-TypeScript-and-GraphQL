@@ -24,7 +24,7 @@ Docker, Minikube, Kubectl, Skaffold should be installed.
 
 ```
 $ docker -v
-Docker version 19.03.12
+Docker version 19.03.13
 ```
 
 <br/>
@@ -40,7 +40,7 @@ $ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/mini
 
 ```
 $ minikube version
-minikube version: v1.13.0
+minikube version: v1.13.1
 ```
 
 <br/>
@@ -51,7 +51,7 @@ minikube version: v1.13.0
 $ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
 
 $ kubectl version --client --short
-Client Version: v1.18.6
+Client Version: v1.19.2
 
 ```
 
@@ -81,7 +81,7 @@ $ {
     // minikube --profile my-profile config set vm-driver virtualbox
     minikube --profile my-profile config set vm-driver docker
 
-    minikube --profile my-profile config set kubernetes-version v1.18.8
+    minikube --profile my-profile config set kubernetes-version v1.19.2
     minikube start --profile my-profile
 }
 ```
