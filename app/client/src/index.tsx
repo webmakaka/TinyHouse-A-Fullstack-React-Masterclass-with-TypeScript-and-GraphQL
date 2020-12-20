@@ -1,28 +1,36 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { render } from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
-import { ApolloProvider, useMutation } from '@apollo/react-hooks';
+import {
+  ApolloClient,
+  ApolloProvider,
+  createHttpLink,
+  InMemoryCache,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import {
+  ApolloProvider as ApolloHooksProvider,
+  useMutation,
+} from '@apollo/react-hooks';
+import { Affix, Layout, Spin } from 'antd';
+import { AppHeaderSkeleton, ErrorBanner } from 'lib/components';
 import { LOG_IN } from 'lib/graphql/mutations';
 import {
   LogIn as LogInData,
   LogInVariables,
 } from 'lib/graphql/mutations/LogIn/__generated__/LogIn';
-import { AppHeaderSkeleton, ErrorBanner } from 'lib/components';
-import { Affix, Spin, Layout } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Viewer } from './lib/types';
 import {
   AppHeader,
   Home,
   Host,
   Listing,
   Listings,
+  Login,
   NotFound,
   User,
-  Login,
 } from './sections';
-import { Viewer } from './lib/types';
 import './styles/index.css';
-import { setContext } from '@apollo/client/link/context';
 
 // https://www.apollographql.com/docs/react/networking/authentication/
 
@@ -136,7 +144,9 @@ const App = () => {
 
 render(
   <ApolloProvider client={client}>
-    <App />
+    <ApolloHooksProvider client={client}>
+      <App />
+    </ApolloHooksProvider>
   </ApolloProvider>,
   document.getElementById('root')
 );

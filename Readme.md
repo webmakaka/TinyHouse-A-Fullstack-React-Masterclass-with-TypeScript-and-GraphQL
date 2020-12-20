@@ -24,7 +24,7 @@ Docker, Minikube, Kubectl, Skaffold should be installed.
 
 ```
 $ docker -v
-Docker version 19.03.13
+Docker version 20.10.0, build 7287ab3
 ```
 
 <br/>
@@ -40,7 +40,7 @@ $ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/mini
 
 ```
 $ minikube version
-minikube version: v1.13.1
+minikube version: v1.16.0
 ```
 
 <br/>
@@ -51,7 +51,7 @@ minikube version: v1.13.1
 $ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
 
 $ kubectl version --client --short
-Client Version: v1.19.2
+Client Version: v1.20.1
 
 ```
 
@@ -66,7 +66,7 @@ $ chmod +x skaffold
 $ sudo mv skaffold /usr/local/bin
 
 $ skaffold version
-v1.15.0
+v1.17.2
 ```
 
 <br/>
@@ -81,7 +81,7 @@ $ {
     // minikube --profile my-profile config set vm-driver virtualbox
     minikube --profile my-profile config set vm-driver docker
 
-    minikube --profile my-profile config set kubernetes-version v1.19.2
+    minikube --profile my-profile config set kubernetes-version v1.20.1
     minikube start --profile my-profile
 }
 ```
@@ -94,7 +94,7 @@ $ {
 <br/>
 
     $ minikube --profile my-profile ip
-    172.17.0.3
+    172.17.0.2
 
 <br/>
 
@@ -104,7 +104,7 @@ $ {
 #---------------------------------------------------------------------
 # Minikube
 #---------------------------------------------------------------------
-172.17.0.3 tinyhouse.dev
+172.17.0.2 tinyhouse.dev
 ```
 
 <br/>
@@ -114,6 +114,8 @@ $ {
 <br/>
 
 ### Run app from part 1
+
+Need to switch to commit:
 
 commit: 3934dd627e244a12907ea7c4595cb52474a47e18
 
@@ -161,7 +163,9 @@ type: **thisisunsafe** in the browser window with security warning.
 
 **Expected result:**
 
-![Application](/img/pic-started-01.png?raw=true)
+<br/>
+
+![Application](/img/pic-app-1-final.png?raw=true)
 
 <br/>
 
@@ -189,7 +193,7 @@ Credentials --> Create Credentials --> Application type : Web Application, Name:
 
 https://console.developers.google.com/
 
-Library --> Google People API --> Enable / Manage
+Library --> Google People API --> Manage
 
 People API --> Credentials --> TinyHouse Web client
 
@@ -205,7 +209,94 @@ People API --> Credentials --> TinyHouse Web client
 
     $ docker login
 
+<br/>
+
+Need to update my docker image name webmakaka/tinyhouse\*\*\* to your in scripts from skaffold and k8s folders.
+
     $ skaffold dev
+
+<br/>
+
+### Seed & Clear Data from MongoDB
+
+<br/>
+
+```
+$ kubectl get pods
+NAME                                           READY   STATUS    RESTARTS   AGE
+tinyhouse-client-deployment-5cdd47b854-5ldvr   1/1     Running   0          5m33s
+tinyhouse-mongo-deployment-85f8fcc6c-q87vt     1/1     Running   0          5m33s
+tinyhouse-server-deployment-659df7c559-8q75j   1/1     Running   0          5m33s
+```
+
+    $ kubectl exec -it tinyhouse-server-deployment-659df7c559-8q75j sh
+
+<br/>
+
+    # cd /app/
+    # npm run seed
+
+<br/>
+
+<br/>
+
+**chrome browser**
+
+```
+graphql -->  https://tinyhouse.dev/api/
+```
+
+<br/>
+
+```
+query{
+  listing(id:"5d378db94e84753160e08b33") {
+    id
+    title
+    description
+    image
+    host {
+      id
+    }
+    type
+    address
+    city
+    bookings (limit:4, page: 1) {
+      total
+    }
+    bookingsIndex
+    price
+    numOfGuests
+  }
+}
+```
+
+<br/>
+
+**response:**
+
+```
+{
+  "data": {
+    "listing": {
+      "id": "5d378db94e84753160e08b33",
+      "title": "Luxury condo suite located in the heart of downtown Toronto",
+      "description": "Luxury condo suite located in the heart of the city with building pool/gym/sauna available 24/7. Buses, subway, and all other amenities are available close by. Booking comes with 1 available parking spot in building underground.",
+      "image": "https://res.cloudinary.com/tiny-house/image/upload/v1560641352/mock/Toronto/toronto-listing-4_ei1ngz.jpg",
+      "host": {
+        "id": "5d378db94e84753160e08b59"
+      },
+      "type": "APARTMENT",
+      "address": "9531 Prince Road, Toronto, ON, CA",
+      "city": "Toronto",
+      "bookings": null,
+      "bookingsIndex": "{}",
+      "price": 21292,
+      "numOfGuests": 4
+    }
+  }
+}
+```
 
 <br/>
 
@@ -213,7 +304,6 @@ People API --> Credentials --> TinyHouse Web client
 
 ```
 client --->  https://tinyhouse.dev/
-graphql -->  https://tinyhouse.dev/api/
 ```
 
 <br/>
@@ -222,18 +312,15 @@ type: **thisisunsafe** in the browser window with security warning.
 
 <br/>
 
-### Seed & Clear Data from MongoDB
+https://tinyhouse.dev/listing/5d378db94e84753160e08b33
 
 <br/>
 
-    $ kubectl get pods
-
-    $ kubectl exec -it tinyhouse-server-deployment-5744884c7c-lf8kp sh
+**My current version**:
 
 <br/>
 
-    # cd /app/
-    # npm run seed
+![Application](/img/pic-app-2-current.png?raw=true)
 
 <br/>
 
