@@ -1,5 +1,5 @@
 import { IResolvers } from 'apollo-server-express';
-import { Database, Listing, Booking } from './../../../lib/types';
+import { Booking, Database, Listing } from 'lib/types';
 
 export const bookingResolvers: IResolvers = {
   Booking: {

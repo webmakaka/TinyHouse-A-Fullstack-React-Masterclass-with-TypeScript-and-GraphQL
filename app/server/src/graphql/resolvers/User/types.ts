@@ -1,4 +1,4 @@
-import { Booking, Listing } from './../../../lib/types';
+import { Booking, Listing } from 'lib/types';
 
 export interface UserArgs {
   id: string;

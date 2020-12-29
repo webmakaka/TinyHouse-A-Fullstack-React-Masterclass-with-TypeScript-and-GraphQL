@@ -1,5 +1,7 @@
-import { Request } from 'express';
 import { IResolvers } from 'apollo-server-express';
+import { Request } from 'express';
+import { Database, User } from 'lib/types';
+import { authorize } from 'lib/utils';
 import {
   UserArgs,
   UserBookingsArgs,
@@ -7,8 +9,6 @@ import {
   UserListingsArgs,
   UserListingsData,
 } from './types';
-import { Database, User } from './../../../lib/types';
-import { authorize } from './../../../lib/utils';
 
 export const userResolvers: IResolvers = {
   Query: {

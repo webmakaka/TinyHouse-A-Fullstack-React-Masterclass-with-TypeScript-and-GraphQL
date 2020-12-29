@@ -415,6 +415,8 @@ https://tinyhouse.dev/listing/5d378db94e84753160e08b33
 
 ### 47. Building the Listings Resolvers
 
+<br/>
+
 ```
 query{
   listings(filter:PRICE_LOW_TO_HIGH, limit:4, page: 1){

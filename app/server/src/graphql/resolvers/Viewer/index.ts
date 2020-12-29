@@ -1,8 +1,8 @@
 import { IResolvers } from 'apollo-server-express';
 import crypto from 'crypto';
 import { Request, Response } from 'express';
-import { Google } from './../../../lib/api/Google';
-import { Database, User, Viewer } from './../../../lib/types';
+import { Google } from 'lib/api';
+import { Database, User, Viewer } from 'lib/types';
 import { LogInArgs } from './types';
 
 const cookieOptions = {
