@@ -407,6 +407,65 @@ https://tinyhouse.dev/listing/5d378db94e84753160e08b33
 
 ### 45. Module 8 Introduction
 
+<br/>
+
+### 46. Listings GraphQL Fields
+
+<br/>
+
+### 47. Building the Listings Resolvers
+
+```
+query{
+  listings(filter:PRICE_LOW_TO_HIGH, limit:4, page: 1){
+   total,
+    result {
+      id
+      title
+      price
+    }
+  }
+}
+```
+
+<br/>
+
+**returns:**
+
+```
+{
+  "data": {
+    "listings": {
+      "total": 37,
+      "result": [
+        {
+          "id": "5d378db94e84753160e08b4a",
+          "title": "Bright furnished home",
+          "price": 1918
+        },
+        {
+          "id": "5d378db94e84753160e08b36",
+          "title": "Picturesque 2 Story House - great location",
+          "price": 2577
+        },
+        {
+          "id": "5d378db94e84753160e08b46",
+          "title": "Stunning luxury home in central LA",
+          "price": 2778
+        },
+        {
+          "id": "5d378db94e84753160e08b3d",
+          "title": "Comfortable studio in the heart of the city",
+          "price": 3078
+        }
+      ]
+    }
+  }
+}
+```
+
+<br/>
+
 ---
 
 <br/>

@@ -229,6 +229,8 @@ tinyhouse-mongo-deployment-85f8fcc6c-q87vt     1/1     Running   0          5m33
 tinyhouse-server-deployment-659df7c559-8q75j   1/1     Running   0          5m33s
 ```
 
+<br/>
+
     $ kubectl exec -it tinyhouse-server-deployment-659df7c559-8q75j sh
 
 <br/>

@@ -1,8 +1,8 @@
+import { IResolvers } from 'apollo-server-express';
 import crypto from 'crypto';
 import { Request, Response } from 'express';
-import { IResolvers } from 'apollo-server-express';
-import { Viewer, Database, User } from './../../../lib/types';
 import { Google } from './../../../lib/api/Google';
+import { Database, User, Viewer } from './../../../lib/types';
 import { LogInArgs } from './types';
 
 const cookieOptions = {
@@ -24,7 +24,7 @@ const logInViaCookie = async (
     { returnOriginal: false }
   );
 
-  let viewer = updateRes.value;
+  const viewer = updateRes.value;
 
   if (!viewer) {
     res.clearCookie('viewer', cookieOptions);
