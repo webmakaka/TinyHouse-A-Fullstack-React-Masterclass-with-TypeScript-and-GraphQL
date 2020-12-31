@@ -468,6 +468,14 @@ query{
 
 <br/>
 
+### 48. Building the UI of the Homepage
+
+<br/>
+
+![Application](/img/pic-m08-p01.png?raw=true)
+
+<br/>
+
 ---
 
 <br/>
