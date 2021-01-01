@@ -1,10 +1,10 @@
 require('dotenv').config();
 
-import {ApolloServer} from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
 import cookieParser from 'cookie-parser';
-import express, {Application} from 'express';
-import {connectDatabase} from './database';
-import {resolvers, typeDefs} from './graphql';
+import express, { Application } from 'express';
+import { connectDatabase } from './database';
+import { resolvers, typeDefs } from './graphql';
 
 const envChecks = async () => {
   if (!process.env.PORT) {

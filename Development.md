@@ -117,6 +117,7 @@ query{
 
 ### 20. Building the UI for Login
 
+    $ cd client
     $ npm run codegen:schema
     $ npm run codegen:generate
 
@@ -473,6 +474,38 @@ query{
 <br/>
 
 ![Application](/img/pic-m08-p01.png?raw=true)
+
+<br/>
+
+### 49. Displaying the highest-priced listings in the Homepage
+
+    $ cd client
+
+    $ apollo schema:download --endpoint=https://tinyhouse.dev/api --skipSSLValidation schema.json
+
+<br/>
+
+```
+  ✔ Loading Apollo Project
+  ✖ Saving schema to schema.json
+    → FetchError: request to https://tinyhouse.dev/api failed, reason: unable to
+…
+    Error: FetchError: request to https://tinyhouse.dev/api failed, reason:
+    unable to verify the first certificate
+```
+
+<!--
+
+    $ npm run codegen:schema
+    $ npm run codegen:generate
+
+-->
+
+<br/>
+
+<!-- apollo schema:download --skipSSLValidation schema.json
+
+apollo client:download-schema --endpoint=https://tinyhouse.dev/api schema.json -->
 
 <br/>
 
