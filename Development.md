@@ -481,6 +481,9 @@ query{
 
     $ cd client
 
+    // Instead of one command i have to execute next
+    // $ npm run codegen:schema
+
     $ apollo schema:download --endpoint=https://tinyhouse.dev/api --skipSSLValidation schema.json
 
 <br/>
@@ -494,18 +497,52 @@ query{
     unable to verify the first certificate
 ```
 
-<!--
+<br/>
 
-    $ npm run codegen:schema
-    $ npm run codegen:generate
-
--->
+I do not know how to solve this right. If you know please send me a solution!
 
 <br/>
 
-<!-- apollo schema:download --skipSSLValidation schema.json
+My solution:
 
-apollo client:download-schema --endpoint=https://tinyhouse.dev/api schema.json -->
+<br/>
+
+```
+NAME                                           READY   STATUS    RESTARTS   AGE
+tinyhouse-client-deployment-58f46df7bb-l88fb   1/1     Running   0          49m
+tinyhouse-mongo-deployment-84b444d875-62f4x    1/1     Running   0          49m
+tinyhouse-server-deployment-6cc478b9c6-kvzjr   1/1     Running   0          16m
+
+```
+
+<br/>
+
+    $ kubectl exec -it tinyhouse-server-deployment-6cc478b9c6-kvzjr sh
+
+<br/>
+
+```
+# cd ~
+# npm add -g apollo
+# apollo schema:download --endpoint=http://localhost:3000/api --skipSSLValidation schema.json
+```
+
+<br/>
+
+    $ cd ~
+    $ kubectl cp tinyhouse-server-deployment-6cc478b9c6-kvzjr:/root/schema.json ~/schema.json
+
+<br/>
+
+    $ mv schema.json ~/projects/dev/js/ts/TinyHouse-A-Fullstack-React-Masterclass-with-TypeScript-and-GraphQL/app/client/
+
+<br/>
+
+    $ npm run codegen:generate
+
+<br/>
+
+![Application](/img/pic-m08-p02.png?raw=true)
 
 <br/>
 

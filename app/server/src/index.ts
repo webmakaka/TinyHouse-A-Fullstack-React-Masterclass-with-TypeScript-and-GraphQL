@@ -6,6 +6,11 @@ import express, { Application } from 'express';
 import { connectDatabase } from './database';
 import { resolvers, typeDefs } from './graphql';
 
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+const allowUnauthorized = process.env.NODE_TLS_REJECT_UNAUTHORIZED === '0';
+console.log('ALLOW UNAUTHORIZED', allowUnauthorized);
+
 const envChecks = async () => {
   if (!process.env.PORT) {
     throw new Error('[APP]: PORT must be defined');
