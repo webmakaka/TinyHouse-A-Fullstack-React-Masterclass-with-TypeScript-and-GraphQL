@@ -1,13 +1,21 @@
-import { ApolloProvider } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
+import {
+  ApolloClient,
+  ApolloProvider,
+  createHttpLink,
+  InMemoryCache,
+} from '@apollo/client';
 import React from 'react';
 import { render } from 'react-dom';
 import { Listings } from './sections';
-import * as serviceWorker from './serviceWorker';
 import './styles/index.css';
 
-const client = new ApolloClient({
+const httpLink = createHttpLink({
   uri: '/api',
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
 });
 
 render(
@@ -16,8 +24,3 @@ render(
   </ApolloProvider>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

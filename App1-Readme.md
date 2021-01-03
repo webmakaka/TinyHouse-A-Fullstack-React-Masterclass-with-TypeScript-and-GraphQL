@@ -47,6 +47,48 @@ type: **thisisunsafe** in the browser window with security warning.
 
 <br/>
 
+https://tinyhouse.dev/api/
+
+```
+query{
+  listings{
+    id,
+  	title,
+    image
+  }
+}
+```
+
+**returns:**
+
+```
+{
+  "data": {
+    "listings": [
+      {
+        "id": "5ff15c0989949700387558a1",
+        "title": "Clean and fully furnished apartment. 5 min away from CN Tower",
+        "image": "https://res.cloudinary.com/tiny-house/image/upload/v1560641352/mock/Toronto/toronto-listing-1_exv0tf.jpg"
+      },
+      {
+        "id": "5ff15c0989949700387558a2",
+        "title": "Luxurious home with private pool",
+        "image": "https://res.cloudinary.com/tiny-house/image/upload/v1560645376/mock/Los%20Angeles/los-angeles-listing-1_aikhx7.jpg"
+      },
+      {
+        "id": "5ff15c0989949700387558a3",
+        "title": "Single bedroom located in the heart of downtown San Fransisco",
+        "image": "https://res.cloudinary.com/tiny-house/image/upload/v1560646219/mock/San%20Fransisco/san-fransisco-listing-1_qzntl4.jpg"
+      }
+    ]
+  }
+}
+```
+
+<br/>
+
+https://tinyhouse.dev/
+
 **Expected result:**
 
 <br/>
