@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tinyhouse-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tinyhouse-server
+  template:
+    metadata:
+      labels:
+        app: tinyhouse-server
+    spec:
+      containers:
+        - name: tinyhouse-server
+          image: webmakaka/tinyhouse-server-app1
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://tinyhouse-mongo-svc:27017'
+            - name: PORT
+              value: '3000'

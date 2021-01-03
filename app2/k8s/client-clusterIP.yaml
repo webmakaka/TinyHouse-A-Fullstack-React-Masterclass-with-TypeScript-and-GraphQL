@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tinyhouse-client-svc
+spec:
+  selector:
+    app: tinyhouse-client
+  ports:
+    - name: tinyhouse-client
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

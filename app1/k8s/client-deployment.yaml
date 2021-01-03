@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tinyhouse-client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tinyhouse-client
+  template:
+    metadata:
+      labels:
+        app: tinyhouse-client
+    spec:
+      containers:
+        - name: tinyhouse-client
+          image: webmakaka/tinyhouse-client-app1

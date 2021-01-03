@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      [ 'app/client/**', 'app/server/**' ]
+      [ 'app2/app/client/**', 'app2/app/server/**' ]
 name: SonarCloud Trigger
 jobs:
   sonarcloud:

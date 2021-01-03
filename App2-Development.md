@@ -608,6 +608,14 @@ SAVE
 
 <br/>
 
+### 53. [Theory] Location-based searching for listings
+
+<br/>
+
+### 54. Updating the listings resolver
+
+<br/>
+
 ---
 
 <br/>

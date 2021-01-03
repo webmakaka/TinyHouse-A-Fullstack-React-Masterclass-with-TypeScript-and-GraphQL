@@ -7,7 +7,7 @@ on:
     branches:
       - master
     paths:
-      - 'app/client/**'
+      - 'app2/app/client/**'
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       # DOCKERHUB
 
       - name: Build the Docker container image
-        run: docker build ./app/client -f ./app/client/Dockerfile.prod -t webmakaka/tinyhouse-client:latest
+        run: docker build ./app2/app/client -f ./app2/app/client/Dockerfile.prod -t webmakaka/tinyhouse-client:latest
       - name: Push the image to hub.docker.com
         run: |
           docker login -u webmakaka -p "${DOCKER_HUB_PASS}"
