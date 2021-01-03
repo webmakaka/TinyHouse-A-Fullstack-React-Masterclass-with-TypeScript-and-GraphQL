@@ -39,6 +39,10 @@ const envChecks = async () => {
   if (!process.env.NODE_ENV) {
     throw new Error('[APP]: NODE_ENV must be defined');
   }
+
+  if (!process.env.GOOGLE_GEOCODING_API_KEY) {
+    throw new Error('[APP]: GOOGLE_GEOCODING_API_KEY must be defined');
+  }
 };
 
 envChecks();

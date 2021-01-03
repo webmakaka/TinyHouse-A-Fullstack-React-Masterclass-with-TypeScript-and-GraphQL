@@ -32,3 +32,8 @@ spec:
                 secretKeyRef:
                   name: google-client-secret
                   key: GOOGLE_CLIENT_SECRET
+            - name: GOOGLE_GEOCODING_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: google-geocoding-api-key
+                  key: GOOGLE_GEOCODING_API_KEY

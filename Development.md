@@ -546,6 +546,68 @@ tinyhouse-server-deployment-6cc478b9c6-kvzjr   1/1     Running   0          16m
 
 <br/>
 
+### 50. Module 8 Summary
+
+<br/>
+
+## Module 9
+
+<br/>
+
+### 51. Module 9 Introduction
+
+<br/>
+
+### 52. Google's Geocoding API
+
+https://console.developers.google.com/apis/
+
+- Enable Api and Services
+
+Geocoding API
+
+Enable
+
+<br/>
+
+Credentials -> Credentials in APIs & Services
+
+<br/>
+
+![Application](/img/pic-m09-p01.png?raw=true)
+
+<br/>
+
+![Application](/img/pic-m09-p02.png?raw=true)
+
+Name: Geocoding API
+
+API restrictions -> Restrict key -> Geocoding API
+
+SAVE
+
+<br/>
+
+![Application](/img/pic-m09-p03.png?raw=true)
+
+<br/>
+
+    $ kubectl create secret generic google-geocoding-api-key --from-literal=GOOGLE_GEOCODING_API_KEY=<GOOGLE_GEOCODING_API_KEY>
+
+<br/>
+
+**I AM NOT PLANNING TO CREATE BILLING ACCOUNT FOR NOW**
+
+<br/>
+
+![Application](/img/pic-m09-p04.png?raw=true)
+
+<br/>
+
+![Application](/img/pic-m09-p05.png?raw=true)
+
+<br/>
+
 ---
 
 <br/>
