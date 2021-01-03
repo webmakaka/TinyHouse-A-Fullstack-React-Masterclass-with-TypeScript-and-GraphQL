@@ -1,5 +1,5 @@
+import { Database } from 'lib/types';
 import { MongoClient } from 'mongodb';
-import { Database } from '../lib/types';
 
 // const url = `mongodb+srv://${process.env.DB_USER}:${
 //   process.env.DB_USER_PASSWORD
