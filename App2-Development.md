@@ -614,6 +614,90 @@ SAVE
 
 ### 54. Updating the listings resolver
 
+    $ cd server
+    $ npm install @googlemaps/google-maps-services-js
+
+<br/>
+
+```
+query{
+  listings(filter:PRICE_HIGH_TO_LOW, limit:4, page: 1){
+    result {
+      id
+      title
+      country
+      admin
+      city
+    }
+  }
+}
+```
+
+<br/>
+
+**returns**
+
+```
+{
+  "data": {
+    "listings": {
+      "result": [
+        {
+          "id": "5d378db94e84753160e08b53",
+          "title": "Spacious 2 story beach house",
+          "country": "Mexico",
+          "admin": "Quintana Roo",
+          "city": "Cancún"
+        },
+        {
+          "id": "5d378db94e84753160e08b37",
+          "title": "Chic downtown condo",
+          "country": "Canada",
+          "admin": "Ontario",
+          "city": "Toronto"
+        },
+        {
+          "id": "5d378db94e84753160e08b4c",
+          "title": "Beautiful 2 bedroom townhouse",
+          "country": "United Kingdom",
+          "admin": "England",
+          "city": "London"
+        },
+        {
+          "id": "5d378db94e84753160e08b54",
+          "title": "Beachfront suite",
+          "country": "Mexico",
+          "admin": "Quintana Roo",
+          "city": "Cancún"
+        }
+      ]
+    }
+  }
+}
+```
+
+<br/>
+
+```
+query{
+  listings(location:"Toronto",filter:PRICE_HIGH_TO_LOW, limit:4, page: 1){
+    result {
+      id
+      title
+      country
+      admin
+      city
+    }
+  }
+}
+```
+
+<br/>
+
+not works for me
+
+<br/>
+
 <br/>
 
 ---

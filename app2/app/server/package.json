@@ -2,6 +2,7 @@
   "name": "tinyhouse-server",
   "version": "0.1.0",
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.1.13",
     "apollo-server-express": "^2.19.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
