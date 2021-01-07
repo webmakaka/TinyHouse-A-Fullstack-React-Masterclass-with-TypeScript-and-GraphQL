@@ -524,17 +524,21 @@ tinyhouse-server-deployment-6cc478b9c6-kvzjr   1/1     Running   0          16m
 ```
 # cd ~
 # npm add -g apollo
-# apollo schema:download --endpoint=http://localhost:3000/api --skipSSLValidation schema.json
+# apollo schema:download --endpoint=http://localhost:3000/api
 ```
 
 <br/>
 
     $ cd ~
-    $ kubectl cp tinyhouse-server-deployment-6cc478b9c6-kvzjr:/root/schema.json ~/schema.json
+    $ kubectl cp tinyhouse-server-deployment-6dfbc45479-6ws7w:/root/schema.json ~/schema.json
 
 <br/>
 
     $ mv schema.json ~/projects/dev/js/ts/TinyHouse-A-Fullstack-React-Masterclass-with-TypeScript-and-GraphQL/app/client/
+
+<br/>
+
+    $ cd ~/projects/dev/js/ts/TinyHouse-A-Fullstack-React-Masterclass-with-TypeScript-and-GraphQL/app/client/
 
 <br/>
 
@@ -694,11 +698,39 @@ query{
 
 <br/>
 
-not works for me
+Not works for me
 
 <br/>
 
+```
+ data: {
+    [tinyhouse-server]       error_message: 'You must enable Billing on the Google Cloud Project at https://console.cloud.google.com/project/_/billing/enable Learn more at https://developers.google.com/maps/gmp-get-started',
+    [tinyhouse-server]       results: [],
+    [tinyhouse-server]       status: 'REQUEST_DENIED'
+    [tinyhouse-server]
+}
+
+```
+
 <br/>
+
+### 55. Building the Listings page
+
+<br/>
+
+https://tinyhouse.dev/listings
+
+<br/>
+
+    $ cd client
+    $ npm run codegen:schema
+    $ npm run codegen:generate
+
+<br/>
+
+I have some issue with css. Did not find the reason.
+
+![Application](/img/pic-m09-p06.png?raw=true)
 
 ---
 

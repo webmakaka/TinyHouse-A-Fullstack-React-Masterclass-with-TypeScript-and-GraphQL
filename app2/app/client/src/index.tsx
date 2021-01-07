@@ -110,7 +110,7 @@ const App = () => {
   }
 
   const logInErrorBannerElement = error ? (
-    <ErrorBanner description="We weren't able to virify if you were logged in. Please try again later!" />
+    <ErrorBanner description="We weren't able to verify if you were logged in. Please try again later!" />
   ) : null;
 
   return (

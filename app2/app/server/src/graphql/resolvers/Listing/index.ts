@@ -66,7 +66,7 @@ export const listingResolvers: IResolvers = {
           data.region = `${cityText}${adminText}${country}`;
         }
 
-        let cursor = await db.listings.find({ query });
+        let cursor = await db.listings.find(query);
 
         if (filter && filter === ListingsFilter.PRICE_LOW_TO_HIGH) {
           cursor = cursor.sort({ price: 1 });
