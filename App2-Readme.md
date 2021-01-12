@@ -6,6 +6,10 @@
 
 https://console.developers.google.com/
 
+<br/>
+
+### Google People API
+
 **New Project**
 
 Credentials --> Create Credentials --> Oauth client id --> Configure consent screen --> UserType --> External --> AppName: TinyHouse --> Save
@@ -28,9 +32,61 @@ People API --> Credentials --> TinyHouse Web client
 
 <br/>
 
+### Google Geocoding API
+
+https://console.developers.google.com/apis/
+
+- Enable Api and Services
+
+Geocoding API
+
+Enable
+
+<br/>
+
+Credentials -> Credentials in APIs & Services
+
+<br/>
+
+![Application](/img/pic-m09-p01.png?raw=true)
+
+<br/>
+
+![Application](/img/pic-m09-p02.png?raw=true)
+
+Name: Geocoding API
+
+API restrictions -> Restrict key -> Geocoding API
+
+SAVE
+
+<br/>
+
+![Application](/img/pic-m09-p03.png?raw=true)
+
+<br/>
+
+    $ kubectl create secret generic google-geocoding-api-key --from-literal=GOOGLE_GEOCODING_API_KEY=<GOOGLE_GEOCODING_API_KEY>
+
+<br/>
+
+**I AM NOT PLANNING TO CREATE BILLING ACCOUNT FOR NOW**
+
+<br/>
+
+![Application](/img/pic-m09-p04.png?raw=true)
+
+<br/>
+
+![Application](/img/pic-m09-p05.png?raw=true)
+
+<br/>
+
+### Run App with Skaffold
+
     $ cd skaffold
 
-    $ docker login
+    $ docker login --username=<hub username>
 
 <br/>
 

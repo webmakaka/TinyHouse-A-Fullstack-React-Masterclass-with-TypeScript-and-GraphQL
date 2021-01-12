@@ -728,9 +728,20 @@ https://tinyhouse.dev/listings
 
 <br/>
 
-I have some issue with css. Did not find the reason.
+I have some issue with css. Can't find the reason.
+
+<br/>
 
 ![Application](/img/pic-m09-p06.png?raw=true)
+
+<br/>
+
+### 56. Pagination & Filtering in the Listings page
+
+    $ cd client
+    $ npm run codegen:generate
+
+![Application](/img/pic-m09-p07.png?raw=true)
 
 ---
 
