@@ -743,6 +743,12 @@ I have some issue with css. Can't find the reason.
 
 ![Application](/img/pic-m09-p07.png?raw=true)
 
+<br/>
+
+### 57. Searching for listings from the App Header
+
+<br/>
+
 ---
 
 <br/>

@@ -111,8 +111,6 @@ $ {
 
 ### [App1](./App1-Readme.md)
 
-<br/>
-
 ### [App2](./App2-Readme.md)
 
 ---

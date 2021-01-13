@@ -7,7 +7,7 @@ import {
   Listings as ListingsData,
   ListingsVariables,
 } from 'lib/graphql/queries/Listings/__generated__/Listings';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import {
   ListingsFilters,
@@ -25,6 +25,7 @@ const { Paragraph, Text, Title } = Typography;
 const PAGE_LIMIT = 8;
 
 export const Listings = ({ match }: RouteComponentProps<MatchParams>) => {
+  const locationRef = useRef(match.params.location);
   const [filter, setFilter] = useState(ListingsFilter.PRICE_LOW_TO_HIGH);
 
   const [page, setPage] = useState(1);
@@ -32,6 +33,7 @@ export const Listings = ({ match }: RouteComponentProps<MatchParams>) => {
   const { loading, data, error } = useQuery<ListingsData, ListingsVariables>(
     LISTINGS,
     {
+      skip: locationRef.current !== match.params.location && page !== 1,
       variables: {
         location: match.params.location,
         filter,
@@ -40,6 +42,11 @@ export const Listings = ({ match }: RouteComponentProps<MatchParams>) => {
       },
     }
   );
+
+  useEffect(() => {
+    setPage(1);
+    locationRef.current = match.params.location;
+  }, [match.params.location]);
 
   if (loading) {
     return (
