@@ -74,6 +74,8 @@ SAVE
 
 **I AM NOT PLANNING TO CREATE BILLING ACCOUNT FOR NOW**
 
+For this reason i set GOOGLE_GEOCODING_API_KEY as any text
+
 <br/>
 
 ![Application](/img/pic-m09-p04.png?raw=true)
@@ -81,6 +83,58 @@ SAVE
 <br/>
 
 ![Application](/img/pic-m09-p05.png?raw=true)
+
+<br/>
+
+### Connect Stripe
+
+https://dashboard.stripe.com/
+
+<br/>
+
+Stripe -> Connected accounts
+
+<br/>
+
+![Application](/img/pic-m10-p02.png?raw=true)
+
+<br/>
+
+Developers -> API Keys
+
+<br/>
+
+Client Project need to add STRIPE_PUBLISHABLE_KEY
+
+Api Project need to add STRIPE_SECRET_KEY
+
+<br/>
+
+Stripe -> Settings -> connect settings -> Test mode client ID
+
+<br/>
+
+Client Project need to add STRIPE_CONNECT_CLIENT_ID
+
+<br/>
+
+![Application](/img/pic-m10-p03.png?raw=true)
+
+<br/>
+
+![Application](/img/pic-m10-p04.png?raw=true)
+
+<br/>
+
+    $ kubectl create secret generic stripe-publishable-key --from-literal=STRIPE_PUBLISHABLE_KEY=<STRIPE_PUBLISHABLE_KEY>
+
+<br/>
+
+    $ kubectl create secret generic stripe-secret-key --from-literal=STRIPE_SECRET_KEY=<STRIPE_SECRET_KEY>
+
+<br/>
+
+    $ kubectl create secret generic stripe-connect-client-id --from-literal=STRIPE_CONNECT_CLIENT_ID=<STRIPE_CONNECT_CLIENT_ID>
 
 <br/>
 

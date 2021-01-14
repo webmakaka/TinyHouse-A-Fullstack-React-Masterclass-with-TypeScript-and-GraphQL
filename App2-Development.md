@@ -741,11 +741,95 @@ I have some issue with css. Can't find the reason.
     $ cd client
     $ npm run codegen:generate
 
+<br/>
+
 ![Application](/img/pic-m09-p07.png?raw=true)
 
 <br/>
 
 ### 57. Searching for listings from the App Header
+
+<br/>
+
+### 58. Index location-based data
+
+![Application](/img/pic-m09-p08.png?raw=true)
+
+<br/>
+
+![Application](/img/pic-m09-p09.png?raw=true)
+
+<br/>
+
+### 59. Module 9 Summary
+
+<br/>
+
+## Module 10
+
+<br/>
+
+### 60. Module 10 Introduction
+
+<br/>
+
+### 61. [Theory] Stripe & Stripe Connect
+
+<br/>
+
+![Application](/img/pic-m10-p01.png?raw=true)
+
+<br/>
+
+### 62. Stripe Connect OAuth
+
+https://dashboard.stripe.com/
+
+<br/>
+
+Stripe -> Connected accounts
+
+<br/>
+
+![Application](/img/pic-m10-p02.png?raw=true)
+
+<br/>
+
+Developers -> API Keys
+
+<br/>
+
+Client Project need to add STRIPE_PUBLISHABLE_KEY
+
+Api Project need to add STRIPE_SECRET_KEY
+
+<br/>
+
+Stripe -> Settings -> connect settings -> Test mode client ID
+
+<br/>
+
+Client Project need to add STRIPE_CONNECT_CLIENT_ID
+
+<br/>
+
+![Application](/img/pic-m10-p03.png?raw=true)
+
+<br/>
+
+![Application](/img/pic-m10-p04.png?raw=true)
+
+<br/>
+
+    $ kubectl create secret generic stripe-publishable-key --from-literal=STRIPE_PUBLISHABLE_KEY=<STRIPE_PUBLISHABLE_KEY>
+
+<br/>
+
+    $ kubectl create secret generic stripe-secret-key --from-literal=STRIPE_SECRET_KEY=<STRIPE_SECRET_KEY>
+
+<br/>
+
+    $ kubectl create secret generic stripe-connect-client-id --from-literal=STRIPE_CONNECT_CLIENT_ID=<STRIPE_CONNECT_CLIENT_ID>
 
 <br/>
 

@@ -37,3 +37,8 @@ spec:
                 secretKeyRef:
                   name: google-geocoding-api-key
                   key: GOOGLE_GEOCODING_API_KEY
+            - name: STRIPE_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: stripe-secret-key
+                  key: STRIPE_SECRET_KEY

@@ -81,7 +81,7 @@ $ {
     // minikube --profile my-profile config set vm-driver virtualbox
     minikube --profile my-profile config set vm-driver docker
 
-    minikube --profile my-profile config set kubernetes-version v1.20.1
+    minikube --profile my-profile config set kubernetes-version v1.20.2
     minikube start --profile my-profile
 }
 ```

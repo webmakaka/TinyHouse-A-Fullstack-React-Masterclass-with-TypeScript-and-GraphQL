@@ -25,7 +25,15 @@ Need to update my docker image name webmakaka/tinyhouse\*\*\* to your in scripts
 
 <br/>
 
+    $ export POD_NAME=$(kubectl get pods --namespace default -l "app=tinyhouse-server" -o jsonpath="{.items[0].metadata.name}")
+
+    $ kubectl exec -it ${POD_NAME} sh
+
+<br/>
+
+<!--
     $ kubectl exec -it tinyhouse-server-deployment-5744884c7c-lf8kp sh
+-->
 
 <br/>
 
