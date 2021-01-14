@@ -833,6 +833,10 @@ Client Project need to add STRIPE_CONNECT_CLIENT_ID
 
 <br/>
 
+### 63. Stripe Connect GraphQL Fields
+
+<br/>
+
 ---
 
 <br/>
