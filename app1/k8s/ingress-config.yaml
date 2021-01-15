@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-svc
@@ -11,10 +11,16 @@ spec:
       http:
         paths:
           - path: /api/?(.*)
+            pathType: 'Prefix'
             backend:
-              serviceName: tinyhouse-server-svc
-              servicePort: 3000
+              service:
+                name: tinyhouse-server-svc
+                port:
+                  number: 3000
           - path: /?(.*)
+            pathType: 'Prefix'
             backend:
-              serviceName: tinyhouse-client-svc
-              servicePort: 3000
+              service:
+                name: tinyhouse-client-svc
+                port:
+                  number: 3000
