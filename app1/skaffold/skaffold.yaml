@@ -8,7 +8,7 @@ build:
   local:
     push: true
   artifacts:
-    - image: webmakaka/tinyhouse-client-app1
+    - image: webmakaka/tinyhouse-client-app1-skaffold
       context: ../app/client
       docker:
         dockerfile: Dockerfile.dev
@@ -16,7 +16,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: webmakaka/tinyhouse-server-app1
+    - image: webmakaka/tinyhouse-server-app1-skaffold
       context: ../app/server
       docker:
         dockerfile: Dockerfile

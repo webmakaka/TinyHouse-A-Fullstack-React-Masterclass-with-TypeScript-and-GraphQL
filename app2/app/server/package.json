@@ -34,7 +34,7 @@
     "seed": "NODE_PATH=./src ts-node seed/seed.ts",
     "clear": "NODE_PATH=./src ts-node seed/clear.ts",
     "build": "NODE_PATH=./src tsc -p ./",
-    "lint": "eslint '**/*.ts'"
+    "lint": "NODE_PATH=./src eslint '**/*.ts'"
   },
   "volta": {
     "node": "14.15.3",

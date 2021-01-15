@@ -31,12 +31,6 @@ Need to update my docker image name webmakaka/tinyhouse\*\*\* to your in scripts
 
 <br/>
 
-<!--
-    $ kubectl exec -it tinyhouse-server-deployment-5744884c7c-lf8kp sh
--->
-
-<br/>
-
     # cd /app/
     # npm run seed
 
