@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta8
+apiVersion: skaffold/v2beta10
 kind: Config
 deploy:
   kubectl:
@@ -8,7 +8,7 @@ build:
   local:
     push: true
   artifacts:
-    - image: webmakaka/tinyhouse-client-app1-skaffold
+    - image: webmakaka/tinyhouse-client-app1
       context: ../app/client
       docker:
         dockerfile: Dockerfile.dev
@@ -16,7 +16,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: webmakaka/tinyhouse-server-app1-skaffold
+    - image: webmakaka/tinyhouse-server-app1
       context: ../app/server
       docker:
         dockerfile: Dockerfile

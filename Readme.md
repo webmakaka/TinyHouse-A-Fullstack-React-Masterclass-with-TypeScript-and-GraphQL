@@ -66,7 +66,7 @@ $ chmod +x skaffold
 $ sudo mv skaffold /usr/local/bin
 
 $ skaffold version
-v1.17.2
+v1.18.0
 ```
 
 <br/>
