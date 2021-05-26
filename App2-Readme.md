@@ -26,9 +26,15 @@ People API --> Credentials --> TinyHouse Web client
 
 <br/>
 
-    $ kubectl create secret generic google-client-id --from-literal=GOOGLE_CLIENT_ID=<GOOGLE_CLIENT_ID>
+If you do not want to use Google Clouds, set any values for secrets
 
-    $ kubectl create secret generic google-client-secret --from-literal=GOOGLE_CLIENT_SECRET=<GOOGLE_CLIENT_SECRET>
+<br/>
+
+```
+$ kubectl create secret generic google-client-id --from-literal=GOOGLE_CLIENT_ID=<GOOGLE_CLIENT_ID>
+
+$ kubectl create secret generic google-client-secret --from-literal=GOOGLE_CLIENT_SECRET=<GOOGLE_CLIENT_SECRET>
+```
 
 <br/>
 
@@ -68,7 +74,9 @@ SAVE
 
 <br/>
 
-    $ kubectl create secret generic google-geocoding-api-key --from-literal=GOOGLE_GEOCODING_API_KEY=<GOOGLE_GEOCODING_API_KEY>
+```
+$ kubectl create secret generic google-geocoding-api-key --from-literal=GOOGLE_GEOCODING_API_KEY=<GOOGLE_GEOCODING_API_KEY>
+```
 
 <br/>
 
@@ -92,7 +100,7 @@ https://dashboard.stripe.com/
 
 <br/>
 
-Stripe -> Connected accounts
+Stripe -> Connected accounts -> Facilitate multi-party payments with Connect -> Get started -> Platform or marketplace
 
 <br/>
 
@@ -110,13 +118,41 @@ Api Project need to add STRIPE_SECRET_KEY
 
 <br/>
 
-Stripe -> Settings -> connect settings -> Test mode client ID
+Stripe -> Settings -> connect settings
 
 <br/>
 
 Client Project need to add STRIPE_CONNECT_CLIENT_ID
 
+Need to set STRIPE_CONNECT_CLIENT_ID as <Test mode client ID>
+
 <br/>
+
+```
+$ kubectl create secret generic stripe-publishable-key --from-literal=STRIPE_PUBLISHABLE_KEY=<STRIPE_PUBLISHABLE_KEY>
+
+$ kubectl create secret generic stripe-secret-key --from-literal=STRIPE_SECRET_KEY=<STRIPE_SECRET_KEY>
+
+$ kubectl create secret generic stripe-connect-client-id --from-literal=STRIPE_CONNECT_CLIENT_ID=<STRIPE_CONNECT_CLIENT_ID>
+```
+
+<br/>
+
+```
+$ kubectl get secrets
+NAME                       TYPE                                  DATA   AGE
+default-token-2k6kh        kubernetes.io/service-account-token   3      34m
+google-client-id           Opaque                                1      31m
+google-client-secret       Opaque                                1      31m
+google-geocoding-api-key   Opaque                                1      30m
+stripe-connect-client-id   Opaque                                1      4m18s
+stripe-publishable-key     Opaque                                1      3m51s
+stripe-secret-key          Opaque                                1      3m37s
+```
+
+<br/>
+
+### Additional Stripe Setup
 
 ![Application](/img/pic-m10-p03.png?raw=true)
 
@@ -126,23 +162,10 @@ Client Project need to add STRIPE_CONNECT_CLIENT_ID
 
 <br/>
 
-    $ kubectl create secret generic stripe-publishable-key --from-literal=STRIPE_PUBLISHABLE_KEY=<STRIPE_PUBLISHABLE_KEY>
-
-<br/>
-
-    $ kubectl create secret generic stripe-secret-key --from-literal=STRIPE_SECRET_KEY=<STRIPE_SECRET_KEY>
-
-<br/>
-
-    $ kubectl create secret generic stripe-connect-client-id --from-literal=STRIPE_CONNECT_CLIENT_ID=<STRIPE_CONNECT_CLIENT_ID>
-
-<br/>
-
 ### Run App with Skaffold
 
     $ cd skaffold
-
-    $ docker login --username=<hub username>
+    $ docker login --username=<your_docker_hub_username>
 
 <br/>
 
@@ -166,14 +189,18 @@ tinyhouse-server-deployment-659df7c559-8q75j   1/1     Running   0          5m33
 
 <br/>
 
-    $ export POD_NAME=$(kubectl get pods --namespace default -l "app=tinyhouse-server" -o jsonpath="{.items[0].metadata.name}")
+```
+$ export POD_NAME=$(kubectl get pods --namespace default -l "app=tinyhouse-server" -o jsonpath="{.items[0].metadata.name}")
 
-    $ kubectl exec -it ${POD_NAME} sh
+$ kubectl exec -it ${POD_NAME} sh
+```
 
 <br/>
 
-    # cd /app/
-    # npm run seed
+```
+# cd /app/
+# npm run seed
+```
 
 <br/>
 
@@ -187,9 +214,13 @@ graphql -->  https://tinyhouse.dev/api/
 
 <br/>
 
+type: **thisisunsafe** in the browser window with security warning.
+
+<br/>
+
 ```
-query{
-  listing(id:"5d378db94e84753160e08b33") {
+query {
+  listing(id: "5d378db94e84753160e08b33") {
     id
     title
     description
@@ -200,7 +231,7 @@ query{
     type
     address
     city
-    bookings (limit:4, page: 1) {
+    bookings(limit: 4, page: 1) {
       total
     }
     bookingsIndex

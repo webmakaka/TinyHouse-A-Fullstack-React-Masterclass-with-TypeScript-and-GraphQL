@@ -24,7 +24,7 @@ Docker, Minikube, Kubectl, Skaffold should be installed.
 
 ```
 $ docker -v
-Docker version 20.10.0, build 7287ab3
+Docker version 20.10.6, build 370c289
 ```
 
 <br/>
@@ -40,7 +40,7 @@ $ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/mini
 
 ```
 $ minikube version
-minikube version: v1.16.0
+minikube version: v1.20.0
 ```
 
 <br/>
@@ -51,7 +51,7 @@ minikube version: v1.16.0
 $ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
 
 $ kubectl version --client --short
-Client Version: v1.20.1
+Client Version: v1.21.1
 
 ```
 
@@ -66,7 +66,7 @@ $ chmod +x skaffold
 $ sudo mv skaffold /usr/local/bin
 
 $ skaffold version
-v1.18.0
+v1.25.0
 ```
 
 <br/>
@@ -75,26 +75,26 @@ v1.18.0
 
 ```
 $ {
-    minikube --profile my-profile config set memory 8192
-    minikube --profile my-profile config set cpus 4
+    minikube --profile TinyHouse config set memory 8192
+    minikube --profile TinyHouse config set cpus 4
 
-    // minikube --profile my-profile config set vm-driver virtualbox
-    minikube --profile my-profile config set vm-driver docker
+    // minikube --profile TinyHouse config set vm-driver virtualbox
+    minikube --profile TinyHouse config set vm-driver docker
 
-    minikube --profile my-profile config set kubernetes-version v1.20.2
-    minikube start --profile my-profile
+    minikube --profile TinyHouse config set kubernetes-version v1.21.1
+    minikube start --profile TinyHouse --embed-certs
 }
 ```
 
 <br/>
 
     // Enable ingress
-    $ minikube addons --profile my-profile enable ingress
+    $ minikube addons --profile TinyHouse enable ingress
 
 <br/>
 
-    $ minikube --profile my-profile ip
-    172.17.0.2
+    $ minikube --profile TinyHouse ip
+    192.168.49.2
 
 <br/>
 
@@ -104,7 +104,7 @@ $ {
 #---------------------------------------------------------------------
 # Minikube
 #---------------------------------------------------------------------
-172.17.0.2 tinyhouse.dev
+192.168.49.2 tinyhouse.dev
 ```
 
 <br/>

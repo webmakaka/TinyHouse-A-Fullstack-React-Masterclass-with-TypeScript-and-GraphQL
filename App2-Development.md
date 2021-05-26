@@ -84,6 +84,8 @@ mutation{
 
 ### 18. Using Google Sign-In & People API
 
+<br/>
+
     $ cd server
     $ npm install googleapis
 
@@ -93,15 +95,19 @@ Library --> Google People API --> Enable
 
 <br/>
 
-    $ kubectl create secret generic google-client-id --from-literal=GOOGLE_CLIENT_ID=<GOOGLE_CLIENT_ID>
+```
+$ kubectl create secret generic google-client-id --from-literal=GOOGLE_CLIENT_ID=<GOOGLE_CLIENT_ID>
 
-    $ kubectl create secret generic google-client-secret --from-literal=GOOGLE_CLIENT_SECRET=<GOOGLE_CLIENT_SECRET>
+$ kubectl create secret generic google-client-secret --from-literal=GOOGLE_CLIENT_SECRET=<GOOGLE_CLIENT_SECRET>
+```
 
 <br/>
 
 ### 19. Building the Authentication Resolvers
 
 https://tinyhouse.dev/api/
+
+<br/>
 
 ```
 query{
@@ -564,6 +570,8 @@ tinyhouse-server-deployment-6cc478b9c6-kvzjr   1/1     Running   0          16m
 
 ### 52. Google's Geocoding API
 
+<br/>
+
 https://console.developers.google.com/apis/
 
 - Enable Api and Services
@@ -751,7 +759,7 @@ I have some issue with css. Can't find the reason.
 
 <br/>
 
-### 58. Index location-based data
+### 58. Index location-based data (Screenshots are from video)
 
 ![Application](/img/pic-m09-p08.png?raw=true)
 
