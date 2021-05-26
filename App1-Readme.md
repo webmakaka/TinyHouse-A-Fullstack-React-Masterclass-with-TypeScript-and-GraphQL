@@ -25,14 +25,18 @@ Need to update my docker image name webmakaka/tinyhouse\*\*\* to your in scripts
 
 <br/>
 
-    $ export POD_NAME=$(kubectl get pods --namespace default -l "app=tinyhouse-server" -o jsonpath="{.items[0].metadata.name}")
+```
+$ export POD_NAME=$(kubectl get pods --namespace default -l "app=tinyhouse-server" -o jsonpath="{.items[0].metadata.name}")
 
-    $ kubectl exec -it ${POD_NAME} sh
+$ kubectl exec -it ${POD_NAME} sh
+```
 
 <br/>
 
-    # cd /app/
-    # npm run seed
+```
+# cd /app/
+# npm run seed
+```
 
 <br/>
 
@@ -101,7 +105,7 @@ https://tinyhouse.dev/
 
 ### Delete minikube with project
 
-    $ minikube --profile my-profile stop && minikube --profile my-profile delete
+    $ minikube --profile TinyHouse stop && minikube --profile TinyHouse delete
 
 <br/>
 
