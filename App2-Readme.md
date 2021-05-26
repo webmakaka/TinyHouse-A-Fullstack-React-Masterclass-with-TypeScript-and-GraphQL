@@ -164,14 +164,22 @@ stripe-secret-key          Opaque                                1      3m37s
 
 ### Run App with Skaffold
 
-    $ cd skaffold
-    $ docker login --username=<your_docker_hub_username>
+<br/>
+
+```
+$ cd skaffold
+$ docker login --username=<your_docker_hub_username>
+```
 
 <br/>
 
 Need to update my docker image name webmakaka/tinyhouse\*\*\* to your in scripts from skaffold and k8s folders.
 
-    $ skaffold dev
+<br/>
+
+```
+$ skaffold dev
+```
 
 <br/>
 
