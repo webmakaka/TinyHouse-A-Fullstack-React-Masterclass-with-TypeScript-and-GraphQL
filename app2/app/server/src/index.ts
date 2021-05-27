@@ -2,9 +2,9 @@ require('dotenv').config();
 
 import { ApolloServer } from 'apollo-server-express';
 import cookieParser from 'cookie-parser';
+import { connectDatabase } from 'database';
 import express, { Application } from 'express';
-import { connectDatabase } from './database';
-import { resolvers, typeDefs } from './graphql';
+import { resolvers, typeDefs } from 'graphql';
 
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -45,7 +45,7 @@ const envChecks = async () => {
   }
 };
 
-envChecks();
+// envChecks();
 
 const mount = async (app: Application) => {
   const db = await connectDatabase();

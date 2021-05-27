@@ -196,7 +196,7 @@ tinyhouse-server-deployment-659df7c559-8q75j   1/1     Running   0          5m33
 ```
 $ export POD_NAME=$(kubectl get pods --namespace default -l "app=tinyhouse-server" -o jsonpath="{.items[0].metadata.name}")
 
-$ kubectl exec -it ${POD_NAME} sh
+$ kubectl exec -it ${POD_NAME} -- sh
 ```
 
 <br/>

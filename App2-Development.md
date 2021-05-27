@@ -33,7 +33,11 @@
 
 <br/>
 
-    $ kubectl exec -it tinyhouse-server-deployment-5744884c7c-lf8kp sh
+```
+$ export POD_NAME=$(kubectl get pods --namespace default -l "app=tinyhouse-server" -o jsonpath="{.items[0].metadata.name}")
+
+$ kubectl exec -it ${POD_NAME} -- sh
+```
 
 <br/>
 
@@ -523,28 +527,39 @@ tinyhouse-server-deployment-6cc478b9c6-kvzjr   1/1     Running   0          16m
 
 <br/>
 
-    $ kubectl exec -it tinyhouse-server-deployment-6cc478b9c6-kvzjr sh
+```
+$ export POD_NAME=$(kubectl get pods --namespace default -l "app=tinyhouse-server" -o jsonpath="{.items[0].metadata.name}")
+
+$ kubectl exec -it ${POD_NAME} -- sh
+```
 
 <br/>
 
 ```
 # cd ~
-# npm add -g apollo
-# apollo schema:download --endpoint=http://localhost:3000/api
+# npx apollo schema:download --endpoint=http://localhost:3000/api
 ```
 
 <br/>
 
-    $ cd ~
-    $ kubectl cp tinyhouse-server-deployment-6dfbc45479-6ws7w:/root/schema.json ~/schema.json
+**Host**
+
+```
+$ cd ~
+$ kubectl cp tinyhouse-server-deployment-779f664b4f-6rd6k:/root/schema.json ~/schema.json
+```
 
 <br/>
 
-    $ mv schema.json ~/projects/dev/js/ts/TinyHouse-A-Fullstack-React-Masterclass-with-TypeScript-and-GraphQL/app/client/
+```
+$ mv schema.json ~/projects/dev/current/TinyHouse-A-Fullstack-React-Masterclass-with-TypeScript-and-GraphQL/app2/app/client/
+```
 
 <br/>
 
-    $ cd ~/projects/dev/js/ts/TinyHouse-A-Fullstack-React-Masterclass-with-TypeScript-and-GraphQL/app/client/
+```
+$ cd ~/projects/dev/current/TinyHouse-A-Fullstack-React-Masterclass-with-TypeScript-and-GraphQL/app2/app/client/
+```
 
 <br/>
 
@@ -717,7 +732,6 @@ Not works for me
     [tinyhouse-server]       status: 'REQUEST_DENIED'
     [tinyhouse-server]
 }
-
 ```
 
 <br/>
@@ -849,6 +863,16 @@ Client Project need to add STRIPE_CONNECT_CLIENT_ID
 
     $ npm install stripe
     $ npm install -D @types/stripe
+
+<br/>
+
+### 65. Connecting with Stripe on the Client
+
+<br/>
+
+    $ cd client
+    $ npm run codegen:schema
+    $ npm run codegen:generate
 
 <br/>
 
