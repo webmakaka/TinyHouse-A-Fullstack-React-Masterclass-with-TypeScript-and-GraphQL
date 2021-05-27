@@ -170,9 +170,9 @@ $ source /etc/profile.d/k9s.sh
 
 <br/>
 
-### [App1](./App1-Readme.md)
+### [App1](./app1/Readme.md)
 
-### [App2](./App2-Readme.md)
+### [App2](./app2/Readme.md)
 
 ---
 

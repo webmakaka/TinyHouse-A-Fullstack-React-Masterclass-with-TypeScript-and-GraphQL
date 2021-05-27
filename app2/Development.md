@@ -127,9 +127,13 @@ query{
 
 ### 20. Building the UI for Login
 
-    $ cd client
-    $ npm run codegen:schema
-    $ npm run codegen:generate
+```
+$ cd client
+$ npm run codegen:schema
+$ npm run codegen:generate
+```
+
+<br/>
 
 https://tinyhouse.dev/login
 
@@ -150,6 +154,8 @@ https://tinyhouse.dev/login
 ### 22. Building the AppHeader & Logout
 
 https://ant.design/components/icon/
+
+<br/>
 
     $ npm install --save @ant-design/icons
 
@@ -181,9 +187,11 @@ https://ant.design/components/icon/
 
 ### 27. Adding the Viewer Cookie on the Server
 
-    $ cd server
-    $ npm install cookie-parser
-    $ npm install --save-dev @types/cookie-parser
+```
+$ cd server
+$ npm install cookie-parser
+$ npm install --save-dev @types/cookie-parser
+```
 
 <br/>
 
@@ -227,6 +235,8 @@ https://ant.design/components/icon/
 
 take id from web app -> profile
 
+<br/>
+
 ```
 query{
   user(id: "112614995982215684080"){
@@ -245,7 +255,7 @@ query{
 
 **returns:**
 
-```
+```json
 {
   "data": {
     "user": {
@@ -265,9 +275,11 @@ query{
 
 ### 35. The UserProfile React Component
 
-    $ cd client
-    $ npm run codegen:schema
-    $ npm run codegen:generate
+```
+$ cd client
+$ npm run codegen:schema
+$ npm run codegen:generate
+```
 
 <br/>
 
@@ -281,9 +293,13 @@ query{
 
 ### 36. The UserListings & UserBookings React Components
 
-    $ cd client
-    $ npm run codegen:schema
-    $ npm run codegen:generate
+<br/>
+
+```
+$ cd client
+$ npm run codegen:schema
+$ npm run codegen:generate
+```
 
 <br/>
 
@@ -321,9 +337,11 @@ https://tinyhouse.dev/user/5d378db94e84753160e08b57
 
 **Inside container**
 
-    # cd /app/
-    # npm run clear
-    # npm run seed
+```
+# cd /app/
+# npm run clear
+# npm run seed
+```
 
 <br/>
 
@@ -354,7 +372,7 @@ query{
 
 **response:**
 
-```
+```json
 {
   "data": {
     "listing": {
@@ -381,9 +399,11 @@ query{
 
 ### 41. Querying for listing data
 
-    $ cd client
-    $ npm run codegen:schema
-    $ npm run codegen:generate
+```
+$ cd client
+$ npm run codegen:schema
+$ npm run codegen:generate
+```
 
 <br/>
 
@@ -399,8 +419,10 @@ https://tinyhouse.dev/listing/5d378db94e84753160e08b33
 
 ### 43. The ListingCreateBooking React Component
 
-    $ cd client
-    $ npm install moment
+```
+$ cd client
+$ npm install moment
+```
 
 <br/>
 
@@ -445,7 +467,7 @@ query{
 
 **returns:**
 
-```
+```json
 {
   "data": {
     "listings": {
@@ -489,12 +511,14 @@ query{
 
 ### 49. Displaying the highest-priced listings in the Homepage
 
-    $ cd client
+```
+$ cd client
 
-    // Instead of one command i have to execute next
-    // $ npm run codegen:schema
+// Instead of one command i have to execute next
+// $ npm run codegen:schema
 
-    $ apollo schema:download --endpoint=https://tinyhouse.dev/api --skipSSLValidation schema.json
+$ apollo schema:download --endpoint=https://tinyhouse.dev/api --skipSSLValidation schema.json
+```
 
 <br/>
 
@@ -619,7 +643,9 @@ SAVE
 
 <br/>
 
-    $ kubectl create secret generic google-geocoding-api-key --from-literal=GOOGLE_GEOCODING_API_KEY=<GOOGLE_GEOCODING_API_KEY>
+```
+$ kubectl create secret generic google-geocoding-api-key --from-literal=GOOGLE_GEOCODING_API_KEY=<GOOGLE_GEOCODING_API_KEY>
+```
 
 <br/>
 
@@ -641,8 +667,10 @@ SAVE
 
 ### 54. Updating the listings resolver
 
-    $ cd server
-    $ npm install @googlemaps/google-maps-services-js
+```
+$ cd server
+$ npm install @googlemaps/google-maps-services-js
+```
 
 <br/>
 
@@ -664,7 +692,7 @@ query{
 
 **returns**
 
-```
+```json
 {
   "data": {
     "listings": {
@@ -725,7 +753,7 @@ Not works for me
 
 <br/>
 
-```
+```json
  data: {
     [tinyhouse-server]       error_message: 'You must enable Billing on the Google Cloud Project at https://console.cloud.google.com/project/_/billing/enable Learn more at https://developers.google.com/maps/gmp-get-started',
     [tinyhouse-server]       results: [],
@@ -744,9 +772,11 @@ https://tinyhouse.dev/listings
 
 <br/>
 
-    $ cd client
-    $ npm run codegen:schema
-    $ npm run codegen:generate
+```
+$ cd client
+$ npm run codegen:schema
+$ npm run codegen:generate
+```
 
 <br/>
 
@@ -843,15 +873,21 @@ Client Project need to add STRIPE_CONNECT_CLIENT_ID
 
 <br/>
 
-    $ kubectl create secret generic stripe-publishable-key --from-literal=STRIPE_PUBLISHABLE_KEY=<STRIPE_PUBLISHABLE_KEY>
+```
+$ kubectl create secret generic stripe-publishable-key --from-literal=STRIPE_PUBLISHABLE_KEY=<STRIPE_PUBLISHABLE_KEY>
+```
 
 <br/>
 
-    $ kubectl create secret generic stripe-secret-key --from-literal=STRIPE_SECRET_KEY=<STRIPE_SECRET_KEY>
+```
+$ kubectl create secret generic stripe-secret-key --from-literal=STRIPE_SECRET_KEY=<STRIPE_SECRET_KEY>
+```
 
 <br/>
 
-    $ kubectl create secret generic stripe-connect-client-id --from-literal=STRIPE_CONNECT_CLIENT_ID=<STRIPE_CONNECT_CLIENT_ID>
+```
+$ kubectl create secret generic stripe-connect-client-id --from-literal=STRIPE_CONNECT_CLIENT_ID=<STRIPE_CONNECT_CLIENT_ID>
+```
 
 <br/>
 
@@ -861,8 +897,10 @@ Client Project need to add STRIPE_CONNECT_CLIENT_ID
 
 ### 64. Building the Stripe Connect Resolvers
 
-    $ npm install stripe
-    $ npm install -D @types/stripe
+```
+$ npm install stripe
+$ npm install -D @types/stripe
+```
 
 <br/>
 
@@ -870,9 +908,11 @@ Client Project need to add STRIPE_CONNECT_CLIENT_ID
 
 <br/>
 
-    $ cd client
-    $ npm run codegen:schema
-    $ npm run codegen:generate
+```
+$ cd client
+$ npm run codegen:schema
+$ npm run codegen:generate
+```
 
 <br/>
 
