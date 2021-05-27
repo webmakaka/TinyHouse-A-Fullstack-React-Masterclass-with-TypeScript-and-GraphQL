@@ -4,12 +4,10 @@ import { ApolloServer } from 'apollo-server-express';
 import cookieParser from 'cookie-parser';
 import { connectDatabase } from 'database';
 import express, { Application } from 'express';
-import { resolvers, typeDefs } from 'graphql';
+import { resolvers, typeDefs } from './graphql';
 
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
-const allowUnauthorized = process.env.NODE_TLS_REJECT_UNAUTHORIZED === '0';
-console.log('ALLOW UNAUTHORIZED', allowUnauthorized);
+// const allowUnauthorized = process.env.NODE_TLS_REJECT_UNAUTHORIZED === '0';
+// console.log('ALLOW UNAUTHORIZED', allowUnauthorized);
 
 const envChecks = async () => {
   if (!process.env.PORT) {
@@ -45,7 +43,7 @@ const envChecks = async () => {
   }
 };
 
-// envChecks();
+envChecks();
 
 const mount = async (app: Application) => {
   const db = await connectDatabase();
@@ -59,9 +57,9 @@ const mount = async (app: Application) => {
   });
 
   server.applyMiddleware({ app, path: '/api' });
-  app.listen(process.env.PORT);
-
-  console.log(`[app] : http://localhost:${process.env.PORT}`);
+  app.listen(process.env.GRAPHQL_PORT, () => {
+    console.log(`[app] : http://localhost:${process.env.GRAPHQL_PORT}/api/`);
+  });
 };
 
 mount(express());

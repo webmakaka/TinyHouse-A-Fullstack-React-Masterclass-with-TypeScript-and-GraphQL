@@ -17,7 +17,7 @@ build:
     - image: webmakaka/tinyhouse-server-app2
       context: ../app/server
       docker:
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile.dev
       sync:
         manual:
           - src: 'src/**/*.ts*'

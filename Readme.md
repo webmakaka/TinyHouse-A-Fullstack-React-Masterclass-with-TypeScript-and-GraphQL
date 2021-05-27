@@ -73,6 +73,8 @@ v1.25.0
 
 ### Run minikube
 
+<br/>
+
 ```
 $ {
     minikube --profile TinyHouse config set memory 8192

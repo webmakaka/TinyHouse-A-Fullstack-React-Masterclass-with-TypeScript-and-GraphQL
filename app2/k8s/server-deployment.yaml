@@ -16,12 +16,12 @@ spec:
         - name: tinyhouse-server
           image: webmakaka/tinyhouse-server
           env:
-            - name: MONGO_URI
-              value: 'mongodb://tinyhouse-mongo-svc:27017'
-            - name: PORT
-              value: '3000'
             - name: PUBLIC_URL
               value: 'https://tinyhouse.dev'
+            - name: GRAPHQL_PORT
+              value: '3000'
+            - name: MONGO_URI
+              value: 'mongodb://tinyhouse-mongo-svc:27017'
             - name: GOOGLE_CLIENT_ID
               valueFrom:
                 secretKeyRef:

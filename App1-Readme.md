@@ -11,24 +11,30 @@
 
     $ docker login
 
+<br/>
+
 Need to update my docker image name webmakaka/tinyhouse\*\*\* to your in scripts from skaffold and k8s folders.
+
+<br/>
 
     $ skaffold dev
 
 <br/>
 
-    $ kubectl get pods
-    NAME                                           READY   STATUS    RESTARTS   AGE
-    tinyhouse-client-deployment-d65d5b866-km548    1/1     Running   0          92s
-    tinyhouse-mongo-deployment-755b899c89-qd44c    1/1     Running   0          92s
-    tinyhouse-server-deployment-5744884c7c-lf8kp   1/1     Running   0          92s
+```
+$ kubectl get pods
+NAME                                           READY   STATUS    RESTARTS   AGE
+tinyhouse-client-deployment-d65d5b866-km548    1/1     Running   0          92s
+tinyhouse-mongo-deployment-755b899c89-qd44c    1/1     Running   0          92s
+tinyhouse-server-deployment-5744884c7c-lf8kp   1/1     Running   0          92s
+```
 
 <br/>
 
 ```
 $ export POD_NAME=$(kubectl get pods --namespace default -l "app=tinyhouse-server" -o jsonpath="{.items[0].metadata.name}")
 
-$ kubectl exec -it ${POD_NAME} sh
+$ kubectl exec -it ${POD_NAME} -- sh
 ```
 
 <br/>
@@ -95,6 +101,8 @@ query{
 
 https://tinyhouse.dev/
 
+<br/>
+
 **Expected result:**
 
 <br/>
@@ -105,7 +113,11 @@ https://tinyhouse.dev/
 
 ### Delete minikube with project
 
-    $ minikube --profile TinyHouse stop && minikube --profile TinyHouse delete
+<br/>
+
+```
+$ minikube --profile TinyHouse stop && minikube --profile TinyHouse delete
+```
 
 <br/>
 

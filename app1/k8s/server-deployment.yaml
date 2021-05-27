@@ -18,5 +18,5 @@ spec:
           env:
             - name: MONGO_URI
               value: 'mongodb://tinyhouse-mongo-svc:27017'
-            - name: PORT
+            - name: GRAPHQL_PORT
               value: '3000'
