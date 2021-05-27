@@ -1,9 +1,10 @@
 import { IResolvers } from 'apollo-server-express';
 import crypto from 'crypto';
 import { Request, Response } from 'express';
-import { Google } from 'lib/api';
+import { Google, Stripe } from 'lib/api';
 import { Database, User, Viewer } from 'lib/types';
-import { LogInArgs } from './types';
+import { authorize } from 'lib/utils';
+import { IConnectStripeArgs, ILogInArgs } from './types';
 
 const cookieOptions = {
   httpOnly: true,
@@ -124,7 +125,7 @@ export const viewerResolvers: IResolvers = {
   Mutation: {
     logIn: async (
       _root: undefined,
-      { input }: LogInArgs,
+      { input }: ILogInArgs,
       { db, req, res }: { db: Database; req: Request; res: Response }
     ): Promise<Viewer> => {
       try {
@@ -147,7 +148,7 @@ export const viewerResolvers: IResolvers = {
           didRequest: true,
         };
       } catch (error) {
-        throw new Error(`[APP]: Failed ot log in ${error}`);
+        throw new Error(`[APP]: Failed to log in ${error}`);
       }
     },
     logOut: (
@@ -162,12 +163,83 @@ export const viewerResolvers: IResolvers = {
         throw new Error(`[APP]: Failed to log out: ${error}`);
       }
     },
-    connectStripe: (): Viewer => {
-      return { didRequest: true };
+    connectStripe: async (
+      _root: undefined,
+      { input }: IConnectStripeArgs,
+      { db, req }: { db: Database; req: Request }
+    ): Promise<Viewer> => {
+      try {
+        const { code } = input;
+        let viewer = await authorize(db, req);
+        if (!viewer) {
+          throw new Error('[App] viewer cannot be found');
+        }
+
+        const wallet = await Stripe.connect(code);
+
+        if (!wallet) {
+          throw new Error('[App] stripe grant error');
+        }
+
+        const updateRes = await db.users.findOneAndUpdate(
+          {
+            _id: viewer._id,
+          },
+          { $set: { walletId: wallet.stripe_user_id } },
+          { returnOriginal: false }
+        );
+
+        if (!updateRes.value) {
+          throw new Error('[App] viewer could not be updated');
+        }
+
+        viewer = updateRes.value;
+
+        return {
+          _id: viewer._id,
+          token: viewer.token,
+          avatar: viewer.avatar,
+          walletId: viewer.walletId,
+          didRequest: true,
+        };
+      } catch (error) {
+        throw new Error(`[App] Failed to connect with Stripe: ${error}`);
+      }
     },
 
-    disconnectStripe: (): Viewer => {
-      return { didRequest: true };
+    disconnectStripe: async (
+      _root: undefined,
+      _args: {},
+      { db, req }: { db: Database; req: Request }
+    ): Promise<Viewer> => {
+      try {
+        let viewer = await authorize(db, req);
+        if (!viewer) {
+          throw new Error('[App] viewer cannot be found');
+        }
+
+        const updateRes = await db.users.findOneAndUpdate(
+          { _id: viewer._id },
+          { $set: { walletId: undefined } },
+          { returnOriginal: false }
+        );
+
+        if (!updateRes.value) {
+          throw new Error('[App] viewer could not be updated');
+        }
+
+        viewer = updateRes.value;
+
+        return {
+          _id: viewer._id,
+          token: viewer.token,
+          avatar: viewer.avatar,
+          walletId: viewer.walletId,
+          didRequest: true,
+        };
+      } catch (error) {
+        throw new Error(`[App] Failed to disconnect with Stripe: ${error}`);
+      }
     },
   },
   Viewer: {

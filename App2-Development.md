@@ -845,6 +845,13 @@ Client Project need to add STRIPE_CONNECT_CLIENT_ID
 
 <br/>
 
+### 64. Building the Stripe Connect Resolvers
+
+    $ npm install stripe
+    $ npm install -D @types/stripe
+
+<br/>
+
 ---
 
 <br/>

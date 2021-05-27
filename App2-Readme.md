@@ -26,10 +26,6 @@ People API --> Credentials --> TinyHouse Web client
 
 <br/>
 
-If you do not want to use Google Clouds, set any values for secrets
-
-<br/>
-
 ```
 $ kubectl create secret generic google-client-id --from-literal=GOOGLE_CLIENT_ID=<GOOGLE_CLIENT_ID>
 
