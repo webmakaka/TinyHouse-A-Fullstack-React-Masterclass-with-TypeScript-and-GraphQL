@@ -90,6 +90,15 @@ $ {
 
 <br/>
 
+```
+// If needed start / stop / delete
+// $ minikube --profile TinyHouse start
+// $ minikube --profile TinyHouse stop
+// $ minikube --profile TinyHouse delete
+```
+
+<br/>
+
     // Enable ingress
     $ minikube addons --profile TinyHouse enable ingress
 
@@ -108,6 +117,56 @@ $ {
 #---------------------------------------------------------------------
 192.168.49.2 tinyhouse.dev
 ```
+
+<br/>
+
+### k9s instllation (Optional)
+
+<br/>
+
+    // homebrew install
+    $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    // commands from output of previous command
+    // set your home, not mine
+    $ echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/marley/.profile
+    $ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+    $ brew install k9s
+
+<br/>
+
+    $ sudo vi /etc/profile.d/k9s.sh
+
+<br/>
+
+```
+# set your home, not mine
+#### k9s #######################
+
+export MINIKUBE_HOME=/home/marley/.minikube
+
+#### k9s #######################
+```
+
+<br/>
+
+```
+$ sudo chmod 755 /etc/profile.d/k9s.sh
+$ source /etc/profile.d/k9s.sh
+```
+
+<br/>
+
+    $ k9s
+
+<br/>
+
+![Application](/img/pic-setup-k9s-01.png?raw=true)
+
+<br/>
+
+![Application](/img/pic-setup-k9s-02.png?raw=true)
 
 <br/>
 
