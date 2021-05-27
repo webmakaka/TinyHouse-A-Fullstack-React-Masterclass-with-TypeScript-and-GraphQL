@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tinyhouse-client
-          image: webmakaka/tinyhouse-client
+          image: webmakaka/tinyhouse-client-app2
           env:
             - name: STRIPE_PUBLISHABLE_KEY
               valueFrom:

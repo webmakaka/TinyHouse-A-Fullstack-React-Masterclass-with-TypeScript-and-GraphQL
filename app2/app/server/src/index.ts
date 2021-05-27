@@ -10,8 +10,8 @@ import { resolvers, typeDefs } from './graphql';
 // console.log('ALLOW UNAUTHORIZED', allowUnauthorized);
 
 const envChecks = async () => {
-  if (!process.env.PORT) {
-    throw new Error('[APP]: PORT must be defined');
+  if (!process.env.GRAPHQL_PORT) {
+    throw new Error('[APP]: GRAPHQL_PORT must be defined');
   }
 
   if (!process.env.MONGO_URI) {

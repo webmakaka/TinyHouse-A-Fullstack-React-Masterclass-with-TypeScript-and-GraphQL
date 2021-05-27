@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tinyhouse-server
-          image: webmakaka/tinyhouse-server
+          image: webmakaka/tinyhouse-server-app2
           env:
             - name: PUBLIC_URL
               value: 'https://tinyhouse.dev'
