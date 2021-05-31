@@ -41,8 +41,10 @@ $ kubectl exec -it ${POD_NAME} -- sh
 
 <br/>
 
-    # cd /app/
-    # npm run seed
+```
+# cd /app/
+# npm run seed
+```
 
 <br/>
 
@@ -919,7 +921,19 @@ $ npm run codegen:generate
 
 <br/>
 
-**Something wrong with my stripe key**
+**Something wrong with my stripe key. Stripe wants more than just registered account with approved email**
+
+<br/>
+
+### 66. Disconnecting from Stripe on the Client
+
+<br/>
+
+```
+$ cd client
+$ npm run codegen:schema
+$ npm run codegen:generate
+```
 
 <br/>
 
