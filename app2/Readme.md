@@ -125,11 +125,22 @@ Need to set STRIPE_CONNECT_CLIENT_ID as <Test mode client ID>
 <br/>
 
 ```
-$ kubectl create secret generic stripe-publishable-key --from-literal=STRIPE_PUBLISHABLE_KEY=<STRIPE_PUBLISHABLE_KEY>
+!!! Please note that variables without the prefix REACT_APP are ignored during bundling.
+```
 
-$ kubectl create secret generic stripe-secret-key --from-literal=STRIPE_SECRET_KEY=<STRIPE_SECRET_KEY>
+<br/>
 
-$ kubectl create secret generic stripe-connect-client-id --from-literal=STRIPE_CONNECT_CLIENT_ID=<STRIPE_CONNECT_CLIENT_ID>
+```
+// CLIENT
+
+$ kubectl create secret generic react-app-stripe-publishable-key --from-literal=REACT_APP_STRIPE_PUBLISHABLE_KEY=<REACT_APP_STRIPE_PUBLISHABLE_KEY>
+
+$ kubectl create secret generic react-app-stripe-connect-client-id --from-literal=REACT_APP_STRIPE_CONNECT_CLIENT_ID=<STRIPE_CONNECT_CLIENT_ID>
+
+
+// API
+
+$ kubectl create secret generic stripe-secret-key --from-literal=STRIPE_SECRET_KEY=<REACT_APP_STRIPE_SECRET_KEY>
 ```
 
 <br/>

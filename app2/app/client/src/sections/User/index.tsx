@@ -7,11 +7,11 @@ import {
   UserVariables,
 } from 'lib/graphql/queries/User/__generated__/User';
 import { UserBookings, UserListings, UserProfile } from './components';
-import { Viewer } from '../../lib/types';
-import { ErrorBanner, PageSkeleton } from '../../lib/components';
+import { Viewer } from 'lib/types';
+import { ErrorBanner, PageSkeleton } from 'lib/components';
 import { Col, Layout, Row } from 'antd';
 
-interface Props {
+interface IProps {
   viewer: Viewer;
 }
 
@@ -25,7 +25,7 @@ const PAGE_LIMIT = 4;
 export const User = ({
   viewer,
   match,
-}: Props & RouteComponentProps<MatchParams>) => {
+}: IProps & RouteComponentProps<MatchParams>) => {
   const [listingsPage, setListingsPage] = useState(1);
   const [bookingsPage, setBookingsPage] = useState(1);
 
@@ -37,6 +37,13 @@ export const User = ({
       limit: PAGE_LIMIT,
     },
   });
+
+  const stripeError = new URL(window.location.href).searchParams.get(
+    'stripe_error'
+  );
+  const stripeErrorBanner = stripeError ? (
+    <ErrorBanner description="We had an issue connection with Stripe. Please try again soon." />
+  ) : null;
 
   if (loading) {
     return (
@@ -85,6 +92,7 @@ export const User = ({
 
   return (
     <Content className="user">
+      {stripeErrorBanner}
       <Row gutter={12} justify="space-between">
         <Col xs={24}>{userProfileElement}</Col>
         <Col xs={24}>

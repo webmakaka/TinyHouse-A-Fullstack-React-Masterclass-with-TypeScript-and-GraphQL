@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
-import { MenuItems } from './components';
-import { Viewer } from 'lib/types';
 import { Input, Layout } from 'antd';
-import logo from './assets/tinyhouse-logo.png';
+import { Viewer } from 'lib/types';
 import { displayErrorMessage } from 'lib/utils';
+import { useEffect, useState } from 'react';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import logo from './assets/tinyhouse-logo.png';
+import { MenuItems } from './components';
 
 interface Props {
   viewer: Viewer;

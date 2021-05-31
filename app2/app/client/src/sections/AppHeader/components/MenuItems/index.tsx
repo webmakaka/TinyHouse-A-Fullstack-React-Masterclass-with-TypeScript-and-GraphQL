@@ -1,12 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { HomeOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { useMutation } from '@apollo/client';
-import { Viewer } from 'lib/types';
+import { Avatar, Button, Menu } from 'antd';
 import { LOG_OUT } from 'lib/graphql/mutations';
 import { LogOut as LogOutData } from 'lib/graphql/mutations/LogOut/__generated__/LogOut';
-import { Avatar, Button, Menu } from 'antd';
-import { HomeOutlined, UserOutlined, LogoutOutlined } from '@ant-design/icons';
-import { displaySuccessNotificatin, displayErrorMessage } from 'lib/utils';
+import { Viewer } from 'lib/types';
+import { displayErrorMessage, displaySuccessNotification } from 'lib/utils';
+import { Link } from 'react-router-dom';
 
 interface Props {
   viewer: Viewer;
@@ -21,7 +20,7 @@ export const MenuItems = ({ viewer, setViewer }: Props) => {
       if (data && data.logOut) {
         setViewer(data.logOut);
         sessionStorage.removeItem('token');
-        displaySuccessNotificatin("You'e successfully logged out!");
+        displaySuccessNotification("You'e successfully logged out!");
       }
     },
     onError: (data) => {

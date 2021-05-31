@@ -5,4 +5,3 @@ export interface Viewer {
   hasWallet: boolean | null;
   didRequest: boolean;
 }
-

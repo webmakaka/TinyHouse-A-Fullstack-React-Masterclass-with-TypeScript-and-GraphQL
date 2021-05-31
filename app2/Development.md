@@ -570,7 +570,7 @@ $ kubectl exec -it ${POD_NAME} -- sh
 
 ```
 $ cd ~
-$ kubectl cp tinyhouse-server-deployment-779f664b4f-6rd6k:/root/schema.json ~/schema.json
+$ kubectl cp ${POD_NAME}:/root/schema.json ~/schema.json
 ```
 
 <br/>
@@ -874,19 +874,22 @@ Client Project need to add STRIPE_CONNECT_CLIENT_ID
 <br/>
 
 ```
-$ kubectl create secret generic stripe-publishable-key --from-literal=STRIPE_PUBLISHABLE_KEY=<STRIPE_PUBLISHABLE_KEY>
+!!! Please note that variables without the prefix REACT_APP are ignored during bundling.
 ```
 
 <br/>
 
 ```
+// CLIENT
+
+$ kubectl create secret generic react-app-stripe-publishable-key --from-literal=REACT_APP_STRIPE_PUBLISHABLE_KEY=<REACT_APP_STRIPE_PUBLISHABLE_KEY>
+
+$ kubectl create secret generic react-app-stripe-connect-client-id --from-literal=REACT_APP_STRIPE_CONNECT_CLIENT_ID=<REACT_APP_STRIPE_CONNECT_CLIENT_ID>
+
+
+// API
+
 $ kubectl create secret generic stripe-secret-key --from-literal=STRIPE_SECRET_KEY=<STRIPE_SECRET_KEY>
-```
-
-<br/>
-
-```
-$ kubectl create secret generic stripe-connect-client-id --from-literal=STRIPE_CONNECT_CLIENT_ID=<STRIPE_CONNECT_CLIENT_ID>
 ```
 
 <br/>
@@ -913,6 +916,10 @@ $ cd client
 $ npm run codegen:schema
 $ npm run codegen:generate
 ```
+
+<br/>
+
+**Something wrong with my stripe key**
 
 <br/>
 

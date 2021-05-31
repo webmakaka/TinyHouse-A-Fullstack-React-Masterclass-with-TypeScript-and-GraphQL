@@ -16,13 +16,13 @@ spec:
         - name: tinyhouse-client
           image: webmakaka/tinyhouse-client-app2
           env:
-            - name: STRIPE_PUBLISHABLE_KEY
+            - name: REACT_APP_STRIPE_PUBLISHABLE_KEY
               valueFrom:
                 secretKeyRef:
-                  name: stripe-publishable-key
-                  key: STRIPE_PUBLISHABLE_KEY
-            - name: STRIPE_CONNECT_CLIENT_ID
+                  name: react-app-stripe-publishable-key
+                  key: REACT_APP_STRIPE_PUBLISHABLE_KEY
+            - name: REACT_APP_STRIPE_CONNECT_CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: stripe-connect-client-id
-                  key: STRIPE_CONNECT_CLIENT_ID
+                  name: react-app-stripe-connect-client-id
+                  key: REACT_APP_STRIPE_CONNECT_CLIENT_ID

@@ -12,7 +12,7 @@
     "@types/react": "^17.0.8",
     "@types/react-dom": "^17.0.5",
     "@types/react-router-dom": "^5.1.7",
-    "antd": "^4.16.0",
+    "antd": "^4.16.1",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.5.0",
     "moment": "^2.29.1",

@@ -1,18 +1,17 @@
-import React, { useEffect, useRef } from 'react';
-import { Redirect } from 'react-router-dom';
 import { useApolloClient, useMutation } from '@apollo/client';
-import { AUTH_URL } from 'lib/graphql/queries/AuthUrl';
+import { Card, Layout, Spin, Typography } from 'antd';
 import { ErrorBanner } from 'lib/components';
 import { LOG_IN } from 'lib/graphql/mutations';
-import { AuthUrl as AuthUrlData } from 'lib/graphql/queries/AuthUrl/__generated__/AuthUrl';
 import {
   LogIn as LogInData,
   LogInVariables,
 } from 'lib/graphql/mutations/LogIn/__generated__/LogIn';
-import { displaySuccessNotificatin, displayErrorMessage } from 'lib/utils';
+import { AUTH_URL } from 'lib/graphql/queries/AuthUrl';
+import { AuthUrl as AuthUrlData } from 'lib/graphql/queries/AuthUrl/__generated__/AuthUrl';
 import { Viewer } from 'lib/types';
-import { Card, Layout, Spin, Typography } from 'antd';
-
+import { displayErrorMessage, displaySuccessNotification } from 'lib/utils';
+import React, { useEffect, useRef } from 'react';
+import { Redirect } from 'react-router-dom';
 import googleLogo from './assets/google_logo.jpg';
 
 interface Props {
@@ -25,18 +24,16 @@ const { Text, Title } = Typography;
 export const Login = ({ setViewer }: Props) => {
   const client = useApolloClient();
 
-  const [
-    logIn,
-    { data: logInData, loading: logInLoading, error: logInError },
-  ] = useMutation<LogInData, LogInVariables>(LOG_IN, {
-    onCompleted: (data) => {
-      if (data && data.logIn && data.logIn.token) {
-        setViewer(data.logIn);
-        sessionStorage.setItem('token', data.logIn.token);
-        displaySuccessNotificatin("You've successfully logged in!");
-      }
-    },
-  });
+  const [logIn, { data: logInData, loading: logInLoading, error: logInError }] =
+    useMutation<LogInData, LogInVariables>(LOG_IN, {
+      onCompleted: (data) => {
+        if (data && data.logIn && data.logIn.token) {
+          setViewer(data.logIn);
+          sessionStorage.setItem('token', data.logIn.token);
+          displaySuccessNotification("You've successfully logged in!");
+        }
+      },
+    });
 
   const logInRef = useRef(logIn);
 

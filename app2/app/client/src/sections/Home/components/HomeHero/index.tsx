@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { Card, Col, Input, Row, Typography } from 'antd';
-
-import torontoImage from '../../assets/toronto.jpg';
+import { Link } from 'react-router-dom';
 import dubaiImage from '../../assets/dubai.jpg';
-import losAngelesImage from '../../assets/los-angeles.jpg';
 import londonImage from '../../assets/london.jpg';
+import losAngelesImage from '../../assets/los-angeles.jpg';
+import torontoImage from '../../assets/toronto.jpg';
+
+require('dotenv').config();
 
 const { Title } = Typography;
 const { Search } = Input;

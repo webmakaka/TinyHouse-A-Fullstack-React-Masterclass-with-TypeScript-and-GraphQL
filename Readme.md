@@ -120,7 +120,7 @@ $ {
 
 <br/>
 
-### k9s instllation (Optional)
+### k9s Installation (Optional)
 
 <br/>
 
