@@ -6,14 +6,14 @@ import {
   User as UserData,
   UserVariables,
 } from 'lib/graphql/queries/User/__generated__/User';
-import { Viewer } from 'lib/types';
+import { IViewer } from 'lib/types';
 import { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { UserBookings, UserListings, UserProfile } from './components';
 
 interface IProps {
-  viewer: Viewer;
-  setViewer: (viewer: Viewer) => void;
+  viewer: IViewer;
+  setViewer: (viewer: IViewer) => void;
 }
 
 interface MatchParams {

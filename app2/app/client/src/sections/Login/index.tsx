@@ -8,14 +8,14 @@ import {
 } from 'lib/graphql/mutations/LogIn/__generated__/LogIn';
 import { AUTH_URL } from 'lib/graphql/queries/AuthUrl';
 import { AuthUrl as AuthUrlData } from 'lib/graphql/queries/AuthUrl/__generated__/AuthUrl';
-import { Viewer } from 'lib/types';
+import { IViewer } from 'lib/types';
 import { displayErrorMessage, displaySuccessNotification } from 'lib/utils';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Redirect } from 'react-router-dom';
 import googleLogo from './assets/google_logo.jpg';
 
 interface Props {
-  setViewer: (viewer: Viewer) => void;
+  setViewer: (viewer: IViewer) => void;
 }
 
 const { Content } = Layout;

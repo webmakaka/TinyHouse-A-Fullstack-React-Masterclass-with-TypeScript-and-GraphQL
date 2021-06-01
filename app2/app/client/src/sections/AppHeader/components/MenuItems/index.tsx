@@ -3,18 +3,18 @@ import { useMutation } from '@apollo/client';
 import { Avatar, Button, Menu } from 'antd';
 import { LOG_OUT } from 'lib/graphql/mutations';
 import { LogOut as LogOutData } from 'lib/graphql/mutations/LogOut/__generated__/LogOut';
-import { Viewer } from 'lib/types';
+import { IViewer } from 'lib/types';
 import { displayErrorMessage, displaySuccessNotification } from 'lib/utils';
 import { Link } from 'react-router-dom';
 
-interface Props {
-  viewer: Viewer;
-  setViewer: (viewer: Viewer) => void;
+interface IProps {
+  viewer: IViewer;
+  setViewer: (viewer: IViewer) => void;
 }
 
 const { Item, SubMenu } = Menu;
 
-export const MenuItems = ({ viewer, setViewer }: Props) => {
+export const MenuItems = ({ viewer, setViewer }: IProps) => {
   const [logOut] = useMutation<LogOutData>(LOG_OUT, {
     onCompleted: (data) => {
       if (data && data.logOut) {

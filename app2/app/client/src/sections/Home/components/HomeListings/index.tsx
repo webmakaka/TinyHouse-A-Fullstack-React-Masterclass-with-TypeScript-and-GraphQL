@@ -1,8 +1,6 @@
-import { Typography, List } from 'antd';
+import { List, Typography } from 'antd';
 import { ListingCard } from 'lib/components';
-
 import { Listings } from 'lib/graphql/queries/Listings/__generated__/Listings';
-import React from 'react';
 
 interface Props {
   title: string;

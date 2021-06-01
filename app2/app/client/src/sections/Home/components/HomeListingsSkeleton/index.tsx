@@ -1,6 +1,4 @@
-import { List, Skeleton, Card } from 'antd';
-
-import React from 'react';
+import { Card, List, Skeleton } from 'antd';
 import listingLoadingCardCover from '../../assets/listing-loading-card-cover.jpg';
 
 export const HomeListingsSkeleton = () => {

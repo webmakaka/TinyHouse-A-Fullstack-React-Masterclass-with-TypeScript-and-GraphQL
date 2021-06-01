@@ -1,9 +1,8 @@
-import React from 'react';
 import { List, Typography } from 'antd';
 import { ListingCard } from 'lib/components';
-import { User } from '../../../../lib/graphql/queries/User/__generated__/User';
+import { User } from 'lib/graphql/queries/User/__generated__/User';
 
-interface Props {
+interface IProps {
   userBookings: User['user']['bookings'];
   bookingsPage: number;
   limit: number;
@@ -17,7 +16,7 @@ export const UserBookings = ({
   bookingsPage,
   limit,
   setBookingsPage,
-}: Props) => {
+}: IProps) => {
   const total = userBookings ? userBookings.total : null;
   const result = userBookings ? userBookings.result : null;
 

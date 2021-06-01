@@ -1,4 +1,4 @@
-export interface Viewer {
+export interface IViewer {
   id: string | null;
   token: string | null;
   avatar: string | null;

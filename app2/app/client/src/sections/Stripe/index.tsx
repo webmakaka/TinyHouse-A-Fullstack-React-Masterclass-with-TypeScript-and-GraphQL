@@ -5,14 +5,14 @@ import {
   ConnectStripe as ConnectStripeData,
   ConnectStripeVariables,
 } from 'lib/graphql/mutations/ConnectStripe/__generated__/ConnectStripe';
-import { Viewer } from 'lib/types';
+import { IViewer } from 'lib/types';
 import { displaySuccessNotification } from 'lib/utils';
 import { useEffect, useRef } from 'react';
 import { Redirect, RouteComponentProps } from 'react-router-dom';
 
 interface IProps {
-  viewer: Viewer;
-  setViewer: (viewer: Viewer) => void;
+  viewer: IViewer;
+  setViewer: (viewer: IViewer) => void;
 }
 
 const { Content } = Layout;

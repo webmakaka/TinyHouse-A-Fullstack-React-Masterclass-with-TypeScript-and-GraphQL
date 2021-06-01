@@ -1,30 +1,28 @@
-import React, { useState } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { Moment } from 'moment';
+import { Col, Layout, Row } from 'antd';
+import { ErrorBanner, PageSkeleton } from 'lib/components';
 import { LISTING } from 'lib/graphql/queries';
-
 import {
   Listing as ListingData,
   ListingVariables,
 } from 'lib/graphql/queries/Listing/__generated__/Listing';
-import { PageSkeleton, ErrorBanner } from 'lib/components';
-
-import { Col, Layout, Row } from 'antd';
+import { Moment } from 'moment';
+import { useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import {
-  ListingDetails,
   ListingBookings,
   ListingCreateBooking,
+  ListingDetails,
 } from 'sections/Listing/components';
 
-interface MatchParams {
+interface IMatchParams {
   id: string;
 }
 
 const { Content } = Layout;
 const PAGE_LIMIT = 3;
 
-export const Listing = ({ match }: RouteComponentProps<MatchParams>) => {
+export const Listing = ({ match }: RouteComponentProps<IMatchParams>) => {
   const [bookingsPage, setBookingsPage] = useState(1);
   const [checkInDate, setCheckInDate] = useState<Moment | null>(null);
   const [checkOutDate, setCheckOutDate] = useState<Moment | null>(null);

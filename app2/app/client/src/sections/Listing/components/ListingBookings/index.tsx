@@ -1,9 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { Avatar, Divider, List, Typography } from 'antd';
-import { Listing } from '../../../../lib/graphql/queries/Listing/__generated__/Listing';
+import { Listing } from 'lib/graphql/queries/Listing/__generated__/Listing';
+import { Link } from 'react-router-dom';
 
-interface Props {
+interface IProps {
   listingBookings: Listing['listing']['bookings'];
   bookingsPage: number;
   limit: number;
@@ -17,7 +16,7 @@ export const ListingBookings = ({
   bookingsPage,
   limit,
   setBookingsPage,
-}: Props) => {
+}: IProps) => {
   const total = listingBookings ? listingBookings.total : null;
   const result = listingBookings ? listingBookings.result : null;
 

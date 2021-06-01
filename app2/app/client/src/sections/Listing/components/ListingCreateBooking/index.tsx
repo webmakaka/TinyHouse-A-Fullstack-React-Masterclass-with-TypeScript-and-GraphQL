@@ -1,11 +1,10 @@
-import React from 'react';
-import moment, { Moment } from 'moment';
-import { Button, Card, Divider, DatePicker, Typography } from 'antd';
+import { Button, Card, DatePicker, Divider, Typography } from 'antd';
 import { displayErrorMessage, formatListingPrice } from 'lib/utils';
+import moment, { Moment } from 'moment';
 
 const { Paragraph, Title } = Typography;
 
-interface Props {
+interface IProps {
   price: number;
   checkInDate: Moment | null;
   checkOutDate: Moment | null;
@@ -19,7 +18,7 @@ export const ListingCreateBooking = ({
   checkOutDate,
   setCheckInDate,
   setCheckOutDate,
-}: Props) => {
+}: IProps) => {
   const disabledDate = (currentDate?: Moment) => {
     if (currentDate) {
       const dateIsBeforeEndOfDay = currentDate.isBefore(moment().endOf('day'));

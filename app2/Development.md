@@ -957,6 +957,10 @@ $ npm run codegen:generate
 
 <br/>
 
+### 71. Building the UI of the Host page
+
+<br/>
+
 ---
 
 <br/>

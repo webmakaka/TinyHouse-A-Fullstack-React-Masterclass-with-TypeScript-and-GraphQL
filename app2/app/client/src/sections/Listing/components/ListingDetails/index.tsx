@@ -1,27 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Avatar, Divider, Tag, Typography } from 'antd';
-import { Listing as ListingData } from '../../../../lib/graphql/queries/Listing/__generated__/Listing';
 import { EnvironmentOutlined } from '@ant-design/icons';
+import { Avatar, Divider, Tag, Typography } from 'antd';
+import { Listing as ListingData } from 'lib/graphql/queries/Listing/__generated__/Listing';
 import { iconColor } from 'lib/utils';
+import { Link } from 'react-router-dom';
 
-interface Props {
+interface IProps {
   listing: ListingData['listing'];
 }
 
 const { Paragraph, Title } = Typography;
 
-export const ListingDetails = ({ listing }: Props) => {
-  const {
-    title,
-    description,
-    image,
-    type,
-    address,
-    city,
-    numOfGuests,
-    host,
-  } = listing;
+export const ListingDetails = ({ listing }: IProps) => {
+  const { title, description, image, type, address, city, numOfGuests, host } =
+    listing;
 
   return (
     <div className="listing-details">

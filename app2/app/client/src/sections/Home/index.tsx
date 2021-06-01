@@ -1,23 +1,21 @@
+import { useQuery } from '@apollo/client';
 import { Col, Layout, Row, Typography } from 'antd';
+import { ListingsFilter } from 'lib/graphql/globalTypes';
+import { LISTINGS } from 'lib/graphql/queries';
+import {
+  Listings as ListingsData,
+  ListingsVariables,
+} from 'lib/graphql/queries/Listings/__generated__/Listings';
 import { displayErrorMessage } from 'lib/utils';
-import React from 'react';
-import { RouteComponentProps, Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import {
   HomeHero,
   HomeListings,
   HomeListingsSkeleton,
 } from 'sections/Home/components';
-
+import cancunImage from './assets/cancun.jpg';
 import mapBackground from './assets/map-background.jpg';
 import sanFransiscoImage from './assets/san-fransisco.jpg';
-import cancunImage from './assets/cancun.jpg';
-import { useQuery } from '@apollo/client';
-import {
-  Listings as ListingsData,
-  ListingsVariables,
-} from 'lib/graphql/queries/Listings/__generated__/Listings';
-import { LISTINGS } from 'lib/graphql/queries';
-import { ListingsFilter } from 'lib/graphql/globalTypes';
 
 const { Content } = Layout;
 const { Paragraph, Title } = Typography;

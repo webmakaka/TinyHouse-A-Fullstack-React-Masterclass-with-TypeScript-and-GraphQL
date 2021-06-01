@@ -1,10 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, Typography } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { iconColor, formatListingPrice } from '../../utils';
+import { Card, Typography } from 'antd';
+import { Link } from 'react-router-dom';
+import { formatListingPrice, iconColor } from '../../utils';
 
-interface Props {
+interface IProps {
   listing: {
     id: string;
     title: string;
@@ -17,7 +16,7 @@ interface Props {
 
 const { Text, Title } = Typography;
 
-export const ListingCard = ({ listing }: Props) => {
+export const ListingCard = ({ listing }: IProps) => {
   const { id, title, image, address, price, numOfGuests } = listing;
   return (
     <Link to={`/listing/${id}`}>

@@ -1,23 +1,21 @@
-import { Avatar, Button, Card, Divider, Typography, Tag } from 'antd';
-import React, { Fragment } from 'react';
-import { User as UserData } from 'lib/graphql/queries/User/__generated__/User';
-import {
-  formatListingPrice,
-  displaySuccessNotification,
-  displayErrorMessage,
-} from 'lib/utils';
 import { useMutation } from '@apollo/client';
-
+import { Avatar, Button, Card, Divider, Tag, Typography } from 'antd';
 import { DISCONNECT_STRIPE } from 'lib/graphql/mutations';
 import { DisconnectStripe as DisconnectStripeData } from 'lib/graphql/mutations/DisconnectStripe/__generated__/DisconnectStripe';
-
-import { Viewer } from 'lib/types';
+import { User as UserData } from 'lib/graphql/queries/User/__generated__/User';
+import { IViewer } from 'lib/types';
+import {
+  displayErrorMessage,
+  displaySuccessNotification,
+  formatListingPrice,
+} from 'lib/utils';
+import { Fragment } from 'react';
 
 interface IProps {
   user: UserData['user'];
-  viewer: Viewer;
+  viewer: IViewer;
   viewerIsUser: boolean;
-  setViewer: (viewer: Viewer) => void;
+  setViewer: (viewer: IViewer) => void;
   handleUserRefetch: () => void;
 }
 

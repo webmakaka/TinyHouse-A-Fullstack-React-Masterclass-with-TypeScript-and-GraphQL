@@ -1,5 +1,5 @@
 import { Input, Layout } from 'antd';
-import { Viewer } from 'lib/types';
+import { IViewer } from 'lib/types';
 import { displayErrorMessage } from 'lib/utils';
 import { useEffect, useState } from 'react';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
@@ -7,8 +7,8 @@ import logo from './assets/tinyhouse-logo.png';
 import { MenuItems } from './components';
 
 interface Props {
-  viewer: Viewer;
-  setViewer: (viewer: Viewer) => void;
+  viewer: IViewer;
+  setViewer: (viewer: IViewer) => void;
 }
 
 const { Header } = Layout;

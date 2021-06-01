@@ -1,7 +1,6 @@
-import React from 'react';
 import { Alert } from 'antd';
 
-interface Props {
+interface IProps {
   message?: string;
   description?: string;
 }
@@ -9,7 +8,7 @@ interface Props {
 export const ErrorBanner = ({
   message = 'Uh oh! Something went wrong!',
   description = 'Look like somethig went wrong! Please check your connection and/or try again later!',
-}: Props) => {
+}: IProps) => {
   return (
     <Alert
       banner

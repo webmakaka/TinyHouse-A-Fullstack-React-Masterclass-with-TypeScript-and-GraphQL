@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
 import { Skeleton } from 'antd';
+import { Fragment } from 'react';
 
 export const PageSkeleton = () => {
   const skeletonParagraph = (
