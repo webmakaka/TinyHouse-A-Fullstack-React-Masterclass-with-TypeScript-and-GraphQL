@@ -1,25 +1,25 @@
-import { Booking, Listing } from 'lib/types';
+import { IBooking, IListing } from 'lib/types';
 
-export interface UserArgs {
+export interface IUserArgs {
   id: string;
 }
 
-export interface UserBookingsArgs {
+export interface IUserBookingsArgs {
   limit: number;
   page: number;
 }
 
-export interface UserBookingsData {
+export interface IUserBookingsData {
   total: number;
-  result: Booking[];
+  result: IBooking[];
 }
 
-export interface UserListingsArgs {
+export interface IUserListingsArgs {
   limit: number;
   page: number;
 }
 
-export interface UserListingsData {
+export interface IUserListingsData {
   total: number;
-  result: Listing[];
+  result: IListing[];
 }

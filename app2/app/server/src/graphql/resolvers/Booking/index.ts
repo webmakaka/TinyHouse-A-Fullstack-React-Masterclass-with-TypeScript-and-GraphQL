@@ -1,16 +1,16 @@
 import { IResolvers } from 'apollo-server-express';
-import { Booking, Database, Listing } from 'lib/types';
+import { IBooking, IDatabase, IListing } from 'lib/types';
 
 export const bookingResolvers: IResolvers = {
   Booking: {
-    id: (booking: Booking): string => {
+    id: (booking: IBooking): string => {
       return booking._id.toString();
     },
     listing: (
-      booking: Booking,
+      booking: IBooking,
       _args: {},
-      { db }: { db: Database }
-    ): Promise<Listing | null> => {
+      { db }: { db: IDatabase }
+    ): Promise<IListing | null> => {
       return db.listings.findOne({ _id: booking.listing });
     },
   },

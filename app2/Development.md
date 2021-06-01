@@ -937,6 +937,26 @@ $ npm run codegen:generate
 
 <br/>
 
+### 67. Module 10 Summary
+
+<br/>
+
+## Module 11
+
+<br/>
+
+### 68. Module 11 Introduction
+
+<br/>
+
+### 69. HostListing GraphQL Fields
+
+<br/>
+
+### 70. Building the HostListing Resolver
+
+<br/>
+
 ---
 
 <br/>

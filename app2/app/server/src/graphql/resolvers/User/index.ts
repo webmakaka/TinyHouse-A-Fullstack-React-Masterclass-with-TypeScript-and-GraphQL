@@ -1,22 +1,22 @@
 import { IResolvers } from 'apollo-server-express';
 import { Request } from 'express';
-import { Database, User } from 'lib/types';
+import { IDatabase, IUser } from 'lib/types';
 import { authorize } from 'lib/utils';
 import {
-  UserArgs,
-  UserBookingsArgs,
-  UserBookingsData,
-  UserListingsArgs,
-  UserListingsData,
+  IUserArgs,
+  IUserBookingsArgs,
+  IUserBookingsData,
+  IUserListingsArgs,
+  IUserListingsData,
 } from './types';
 
 export const userResolvers: IResolvers = {
   Query: {
     user: async (
       _root: undefined,
-      { id }: UserArgs,
-      { db, req }: { db: Database; req: Request }
-    ): Promise<User> => {
+      { id }: IUserArgs,
+      { db, req }: { db: IDatabase; req: Request }
+    ): Promise<IUser> => {
       try {
         const user = await db.users.findOne({ _id: id });
 
@@ -36,26 +36,26 @@ export const userResolvers: IResolvers = {
     },
   },
   User: {
-    id: (user: User): string => {
+    id: (user: IUser): string => {
       return user._id;
     },
-    hasWallet: (user: User): boolean => {
+    hasWallet: (user: IUser): boolean => {
       return Boolean(user.walletId);
     },
-    income: (user: User): number | null => {
+    income: (user: IUser): number | null => {
       return user.authorized ? user.income : null;
     },
     bookings: async (
-      user: User,
-      { limit, page }: UserBookingsArgs,
-      { db }: { db: Database }
-    ): Promise<UserBookingsData | null> => {
+      user: IUser,
+      { limit, page }: IUserBookingsArgs,
+      { db }: { db: IDatabase }
+    ): Promise<IUserBookingsData | null> => {
       try {
         if (!user.authorized) {
           return null;
         }
 
-        const data: UserBookingsData = {
+        const data: IUserBookingsData = {
           total: 0,
           result: [],
         };
@@ -76,12 +76,12 @@ export const userResolvers: IResolvers = {
       }
     },
     listings: async (
-      user: User,
-      { limit, page }: UserListingsArgs,
-      { db }: { db: Database }
-    ): Promise<UserListingsData | null> => {
+      user: IUser,
+      { limit, page }: IUserListingsArgs,
+      { db }: { db: IDatabase }
+    ): Promise<IUserListingsData | null> => {
       try {
-        const data: UserListingsData = {
+        const data: IUserListingsData = {
           total: 0,
           result: [],
         };

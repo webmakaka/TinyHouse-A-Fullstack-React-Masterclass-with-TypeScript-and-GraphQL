@@ -1,39 +1,53 @@
-import { Booking, Listing } from 'lib/types';
+import { EListingType, IBooking, IListing } from 'lib/types';
 
-export enum ListingsFilter {
+export enum EListingsFilter {
   PRICE_LOW_TO_HIGH = 'PRICE_LOW_TO_HIGH',
   PRICE_HIGH_TO_LOW = 'PRICE_HIGH_TO_LOW',
 }
 
-export interface ListingArgs {
+export interface IListingArgs {
   id: string;
 }
 
-export interface ListingBookingsArgs {
+export interface IListingBookingsArgs {
   limit: number;
   page: number;
 }
 
-export interface ListingBookingsData {
+export interface IListingBookingsData {
   total: number;
-  result: Booking[];
+  result: IBooking[];
 }
 
-export interface ListingsArgs {
+export interface IListingsArgs {
   location: string | null;
-  filter: ListingsFilter;
+  filter: EListingsFilter;
   limit: number;
   page: number;
 }
 
-export interface ListingsData {
+export interface IListingsData {
   region: string | null;
   total: number;
-  result: Listing[];
+  result: IListing[];
 }
 
-export interface ListingsQuery {
+export interface IListingsQuery {
   country?: string;
   admin?: string;
   city?: string;
+}
+
+export interface IHostListingInput {
+  title: string;
+  description: string;
+  image: string;
+  type: EListingType;
+  address: string;
+  price: number;
+  numOfGuests: number;
+}
+
+export interface IHostListingArgs {
+  input: IHostListingInput;
 }

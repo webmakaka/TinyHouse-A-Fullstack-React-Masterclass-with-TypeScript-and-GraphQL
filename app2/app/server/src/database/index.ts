@@ -1,4 +1,4 @@
-import { Booking, Database, Listing, User } from 'lib/types';
+import { IBooking, IDatabase, IListing, IUser } from 'lib/types';
 import { MongoClient } from 'mongodb';
 
 // const url = `mongodb+srv://${process.env.DB_USER}:${
@@ -7,7 +7,7 @@ import { MongoClient } from 'mongodb';
 
 const url = `${process.env.MONGO_URI}`;
 
-export const connectDatabase = async (): Promise<Database> => {
+export const connectDatabase = async (): Promise<IDatabase> => {
   const client = await MongoClient.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -15,8 +15,8 @@ export const connectDatabase = async (): Promise<Database> => {
   const db = client.db('main');
 
   return {
-    bookings: db.collection<Booking>('bookings'),
-    listings: db.collection<Listing>('listings'),
-    users: db.collection<User>('users'),
+    bookings: db.collection<IBooking>('bookings'),
+    listings: db.collection<IListing>('listings'),
+    users: db.collection<IUser>('users'),
   };
 };

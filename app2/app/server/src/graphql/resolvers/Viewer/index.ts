@@ -2,7 +2,7 @@ import { IResolvers } from 'apollo-server-express';
 import crypto from 'crypto';
 import { Request, Response } from 'express';
 import { Google, Stripe } from 'lib/api';
-import { Database, User, Viewer } from 'lib/types';
+import { IDatabase, IUser, IViewer } from 'lib/types';
 import { authorize } from 'lib/utils';
 import { IConnectStripeArgs, ILogInArgs } from './types';
 
@@ -15,10 +15,10 @@ const cookieOptions = {
 
 const logInViaCookie = async (
   token: string,
-  db: Database,
+  db: IDatabase,
   req: Request,
   res: Response
-): Promise<User | undefined> => {
+): Promise<IUser | undefined> => {
   const updateRes = await db.users.findOneAndUpdate(
     { _id: req.signedCookies.viewer },
     { $set: { token } },
@@ -37,9 +37,9 @@ const logInViaCookie = async (
 const logInViaGoogle = async (
   code: string,
   token: string,
-  db: Database,
+  db: IDatabase,
   res: Response
-): Promise<User | undefined> => {
+): Promise<IUser | undefined> => {
   const { user } = await Google.logIn(code);
 
   if (!user) {
@@ -126,13 +126,13 @@ export const viewerResolvers: IResolvers = {
     logIn: async (
       _root: undefined,
       { input }: ILogInArgs,
-      { db, req, res }: { db: Database; req: Request; res: Response }
-    ): Promise<Viewer> => {
+      { db, req, res }: { db: IDatabase; req: Request; res: Response }
+    ): Promise<IViewer> => {
       try {
         const code = input ? input.code : null;
         const token = crypto.randomBytes(16).toString('hex');
 
-        const viewer: User | undefined = code
+        const viewer: IUser | undefined = code
           ? await logInViaGoogle(code, token, db, res)
           : await logInViaCookie(token, db, req, res);
 
@@ -155,7 +155,7 @@ export const viewerResolvers: IResolvers = {
       _root: undefined,
       _args: {},
       { res }: { res: Response }
-    ): Viewer => {
+    ): IViewer => {
       try {
         res.clearCookie('viewer', cookieOptions);
         return { didRequest: true };
@@ -166,8 +166,8 @@ export const viewerResolvers: IResolvers = {
     connectStripe: async (
       _root: undefined,
       { input }: IConnectStripeArgs,
-      { db, req }: { db: Database; req: Request }
-    ): Promise<Viewer> => {
+      { db, req }: { db: IDatabase; req: Request }
+    ): Promise<IViewer> => {
       try {
         const { code } = input;
         let viewer = await authorize(db, req);
@@ -210,8 +210,8 @@ export const viewerResolvers: IResolvers = {
     disconnectStripe: async (
       _root: undefined,
       _args: {},
-      { db, req }: { db: Database; req: Request }
-    ): Promise<Viewer> => {
+      { db, req }: { db: IDatabase; req: Request }
+    ): Promise<IViewer> => {
       try {
         let viewer = await authorize(db, req);
         if (!viewer) {
@@ -243,10 +243,10 @@ export const viewerResolvers: IResolvers = {
     },
   },
   Viewer: {
-    id: (viewer: Viewer): string | undefined => {
+    id: (viewer: IViewer): string | undefined => {
       return viewer._id;
     },
-    hasWallet: (viewer: Viewer): boolean | undefined => {
+    hasWallet: (viewer: IViewer): boolean | undefined => {
       return viewer.walletId ? true : undefined;
     },
   },

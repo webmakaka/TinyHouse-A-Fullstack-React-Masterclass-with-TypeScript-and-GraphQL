@@ -1,10 +1,10 @@
 import { Request } from 'express';
-import { Database, User } from 'lib/types';
+import { IDatabase, IUser } from 'lib/types';
 
 export const authorize = async (
-  db: Database,
+  db: IDatabase,
   req: Request
-): Promise<User | null> => {
+): Promise<IUser | null> => {
   const token = req.get('X-CSRF-TOKEN');
 
   const viewer = await db.users.findOne({

@@ -1,6 +1,6 @@
 import { Collection, ObjectId } from 'mongodb';
 
-export interface Viewer {
+export interface IViewer {
   _id?: string;
   token?: string;
   avatar?: string;
@@ -8,48 +8,48 @@ export interface Viewer {
   didRequest: boolean;
 }
 
-export enum ListingType {
+export enum EListingType {
   Apartment = 'APARTMENT',
   House = 'HOUSE',
 }
 
-export interface BookingIndexMonth {
+export interface IBookingIndexMonth {
   [key: string]: boolean;
 }
 
-export interface BookingsIndexYear {
-  [key: string]: BookingIndexMonth;
+export interface IBookingsIndexYear {
+  [key: string]: IBookingIndexMonth;
 }
 
-export interface BookingsIndex {
-  [key: string]: BookingsIndexYear;
+export interface IBookingsIndex {
+  [key: string]: IBookingsIndexYear;
 }
-export interface Booking {
+export interface IBooking {
   _id: ObjectId;
   listing: ObjectId;
   tenant: string;
   checkOut: string;
 }
 
-export interface Listing {
+export interface IListing {
   _id: ObjectId;
   title: string;
   description: string;
   image: string;
   host: string;
-  type: ListingType;
+  type: EListingType;
   address: string;
   country: string;
   admin: string;
   city: string;
   bookings: ObjectId[];
-  bookingsIndex: BookingsIndex;
+  bookingsIndex: IBookingsIndex;
   price: number;
   numOfGuests: number;
   authorized?: boolean;
 }
 
-export interface User {
+export interface IUser {
   _id: string;
   token: string;
   name: string;
@@ -62,8 +62,8 @@ export interface User {
   authorized?: boolean;
 }
 
-export interface Database {
-  bookings: Collection<Booking>;
-  listings: Collection<Listing>;
-  users: Collection<User>;
+export interface IDatabase {
+  bookings: Collection<IBooking>;
+  listings: Collection<IListing>;
+  users: Collection<IUser>;
 }
