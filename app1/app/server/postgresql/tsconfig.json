@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "target": "ES2020",
     "module": "commonjs",
+    "target": "ES2020",
+    "baseUrl": "./src",
     "rootDir": "./src",
     "outDir": "./build",
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
   },
   "exclude": ["temp"]
 }

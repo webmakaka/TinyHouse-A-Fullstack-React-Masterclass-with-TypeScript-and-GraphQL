@@ -1,7 +1,8 @@
-import { Collection, ObjectId } from 'mongodb';
+import { ListingEntity } from 'database/entity';
+import { Repository } from 'typeorm';
 
 export interface Listing {
-  _id: ObjectId;
+  id: string;
   title: string;
   image: string;
   address: string;
@@ -13,5 +14,5 @@ export interface Listing {
 }
 
 export interface Database {
-  listings: Collection<Listing>;
+  listings: Repository<ListingEntity>;
 }

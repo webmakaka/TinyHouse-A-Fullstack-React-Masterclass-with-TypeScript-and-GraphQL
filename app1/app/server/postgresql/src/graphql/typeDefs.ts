@@ -14,10 +14,13 @@ export const typeDefs = gql`
   }
 
   type Query {
+    listing(id: ID!): Listing!
     listings: [Listing!]!
   }
 
   type Mutation {
+    createListing: Listing!
+    updateListing(id: ID!): Listing!
     deleteListing(id: ID!): Listing!
   }
 `;

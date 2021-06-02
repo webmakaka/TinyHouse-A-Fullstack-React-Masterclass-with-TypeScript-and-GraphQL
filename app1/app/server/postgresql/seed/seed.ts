@@ -1,8 +1,8 @@
 require('dotenv').config();
 
+import crypto from 'crypto';
 import { connectDatabase } from 'database';
 import { Listing } from 'lib/types';
-import { ObjectId } from 'mongodb';
 
 const seed = async () => {
   try {
@@ -11,7 +11,7 @@ const seed = async () => {
     const db = await connectDatabase();
     const listings: Listing[] = [
       {
-        _id: new ObjectId(),
+        id: crypto.randomBytes(16).toString('hex'),
         title: 'Clean and fully furnished apartment. 5 min away from CN Tower',
         image:
           'https://res.cloudinary.com/tiny-house/image/upload/v1560641352/mock/Toronto/toronto-listing-1_exv0tf.jpg',
@@ -23,7 +23,7 @@ const seed = async () => {
         rating: 5,
       },
       {
-        _id: new ObjectId(),
+        id: crypto.randomBytes(16).toString('hex'),
         title: 'Luxurious home with private pool',
         image:
           'https://res.cloudinary.com/tiny-house/image/upload/v1560645376/mock/Los%20Angeles/los-angeles-listing-1_aikhx7.jpg',
@@ -35,7 +35,7 @@ const seed = async () => {
         rating: 4,
       },
       {
-        _id: new ObjectId(),
+        id: crypto.randomBytes(16).toString('hex'),
         title: 'Single bedroom located in the heart of downtown San Fransisco',
         image:
           'https://res.cloudinary.com/tiny-house/image/upload/v1560646219/mock/San%20Fransisco/san-fransisco-listing-1_qzntl4.jpg',
@@ -49,7 +49,7 @@ const seed = async () => {
     ];
 
     for (const listing of listings) {
-      await db.listings.insertOne(listing);
+      await db.listings.create(listing).save();
     }
 
     console.log('[seed] : success');
