@@ -1,38 +1,46 @@
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/app1/app/client/'
-    schedule:
-      interval: 'monthly'
-  - package-ecosystem: 'npm'
-    directory: '/app1/app/server/'
-    schedule:
-      interval: 'monthly'
-  - package-ecosystem: 'docker'
-    directory: '/app1/app/client/'
-    schedule:
-      interval: 'monthly'
-  - package-ecosystem: 'docker'
-    directory: '/app1/app/server/'
-    schedule:
-      interval: 'monthly'
-  - package-ecosystem: 'npm'
-    directory: '/app2/app/client/'
-    schedule:
-      interval: 'monthly'
-  - package-ecosystem: 'npm'
-    directory: '/app2/app/server/'
-    schedule:
-      interval: 'monthly'
-  - package-ecosystem: 'docker'
-    directory: '/app2/app/client/'
-    schedule:
-      interval: 'monthly'
-  - package-ecosystem: 'docker'
-    directory: '/app2/app/server/'
-    schedule:
-      interval: 'monthly'
   - package-ecosystem: 'github-actions'
     directory: '/'
+    schedule:
+      interval: 'monthly'
+  - package-ecosystem: 'npm'
+    directory: '/app1/app/client/'
+    schedule:
+      interval: 'monthly'
+  - package-ecosystem: 'npm'
+    directory: '/app1/app/server/mongodb/'
+    schedule:
+      interval: 'monthly'
+ - package-ecosystem: 'npm'
+    directory: '/app1/app/server/postgresql/'
+    schedule:
+      interval: 'monthly'
+  - package-ecosystem: 'docker'
+    directory: '/app1/app/client/'
+    schedule:
+      interval: 'monthly'
+  - package-ecosystem: 'docker'
+    directory: '/app1/app/server/mongodb/'
+    schedule:
+      interval: 'monthly'
+  - package-ecosystem: 'docker'
+    directory: '/app1/app/server/postgresql/'
+    schedule:
+      interval: 'monthly'      
+  - package-ecosystem: 'npm'
+    directory: '/app2/app/client/'
+    schedule:
+      interval: 'monthly'
+  - package-ecosystem: 'npm'
+    directory: '/app2/app/server/'
+    schedule:
+      interval: 'monthly'
+  - package-ecosystem: 'docker'
+    directory: '/app2/app/client/'
+    schedule:
+      interval: 'monthly'
+  - package-ecosystem: 'docker'
+    directory: '/app2/app/server/'
     schedule:
       interval: 'monthly'

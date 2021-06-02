@@ -2,9 +2,16 @@
 
 <br/>
 
-### Postgresql
+### Run app from part 1
 
 <br/>
+
+    $ cd app1
+    $ cd postgresql
+
+    $ npm install typeorm reflect-metadata
+
+    $ npm install pg
 
 <br/>
 
