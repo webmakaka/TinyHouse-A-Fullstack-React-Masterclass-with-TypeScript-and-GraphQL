@@ -20,6 +20,7 @@ import { IViewer } from 'lib/types';
 import { iconColor, displayErrorMessage } from 'lib/utils';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FormComponentProps } from 'antd/lib/form/Form';
 
 interface IProps {
   viewer: IViewer;
@@ -187,3 +188,7 @@ const getBase64Value = (
     callback(reader.result as string);
   };
 };
+
+// export const WrappedHost = Form.create<IProps & FormComponentProps>({
+//   name: 'host_form',
+// })(Host);
