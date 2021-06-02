@@ -15,7 +15,7 @@ build:
           - src: 'src/**/*.ts'
             dest: .
     - image: webmakaka/tinyhouse-server-app1
-      context: ../app/server
+      context: ../app/server/mongodb
       docker:
         dockerfile: Dockerfile
       sync:

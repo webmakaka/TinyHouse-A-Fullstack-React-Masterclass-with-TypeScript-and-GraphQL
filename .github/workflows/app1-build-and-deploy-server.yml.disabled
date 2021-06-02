@@ -7,7 +7,7 @@ on:
     branches:
       - master
     paths:
-      - 'app1/app/server/**'
+      - 'app1/app/server/mongodb/**'
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       # DOCKERHUB
 
       - name: Build the Docker container image
-        run: docker build ./app1/app/server -f ./app1/app/server/Dockerfile -t webmakaka/tinyhouse-server-app1:latest
+        run: docker build ./app1/app/server/mongodb -f ./app1/app/server/mongodb/Dockerfile -t webmakaka/tinyhouse-server-app1:latest
 
       - name: Push the image to hub.docker.com
         run: |
