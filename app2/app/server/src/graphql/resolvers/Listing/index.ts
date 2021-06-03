@@ -1,5 +1,5 @@
-import { IResolvers } from 'apollo-server-express';
-import { Request } from 'express';
+import {IResolvers} from 'apollo-server-express';
+import {Request} from 'express';
 import {
   EListingsFilter,
   IHostListingArgs,
@@ -9,12 +9,12 @@ import {
   IListingBookingsData,
   IListingsArgs,
   IListingsData,
-  IListingsQuery,
+  IListingsQuery
 } from 'graphql/resolvers/Listing/types';
-import { Google } from 'lib/api';
-import { EListingType, IDatabase, IListing, IUser } from 'lib/types';
-import { authorize } from 'lib/utils';
-import { ObjectId } from 'mongodb';
+import {Cloudinary, Google} from 'lib/api';
+import {EListingType, IDatabase, IListing, IUser} from 'lib/types';
+import {authorize} from 'lib/utils';
+import {ObjectId} from 'mongodb';
 
 const verifyHostListingInput = ({
   title,
@@ -125,9 +125,12 @@ export const listingResolvers: IResolvers = {
         throw new Error('invalid address input');
       }
 
+      const imageUrl = await Cloudinary.upload(input.image);
+
       const insertResult = await db.listings.insertOne({
         _id: new ObjectId(),
         ...input,
+        image: imageUrl,
         bookings: [],
         bookingsIndex: {},
         country,

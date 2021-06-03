@@ -975,12 +975,29 @@ $ npm run codegen:schema
 $ npm run codegen:generate
 ```
 
-I have an issue with
+<br/>
+
+### 73. Module 11 Summary
 
 <br/>
 
+## Module 12
+
+<br/>
+
+### 74. Module 12 Introduction
+
+<br/>
+
+### 75. Cloudinary & Image Storage
+
+<br/>
+
+### 76. Image uploads with Cloudinary
+
 ```
-import {FormComponentProps} from 'antd/lib/form/Form';
+$ cd server
+$ npm install cloudinary
 ```
 
 <br/>
