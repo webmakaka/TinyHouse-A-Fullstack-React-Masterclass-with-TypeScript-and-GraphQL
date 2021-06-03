@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 import { ApolloServer } from 'apollo-server-express';
+// import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import { connectDatabase } from 'database';
 import express, { Application } from 'express';
@@ -9,7 +10,7 @@ import { resolvers, typeDefs } from './graphql';
 // const allowUnauthorized = process.env.NODE_TLS_REJECT_UNAUTHORIZED === '0';
 // console.log('ALLOW UNAUTHORIZED', allowUnauthorized);
 
-const envChecks = async () => {
+const envChecks = () => {
   if (!process.env.GRAPHQL_PORT) {
     throw new Error('[APP]: GRAPHQL_PORT must be defined');
   }
@@ -47,6 +48,12 @@ envChecks();
 
 const mount = async (app: Application) => {
   const db = await connectDatabase();
+
+  // app.use(
+  //   bodyParser.json({
+  //     limit: '2mb',
+  //   })
+  // );
 
   app.use(cookieParser(process.env.COOKIE_PARSER_SECRET));
 

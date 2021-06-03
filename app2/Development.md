@@ -544,6 +544,12 @@ My solution:
 <br/>
 
 ```
+$ kubectl get pods
+```
+
+<br/>
+
+```
 NAME                                           READY   STATUS    RESTARTS   AGE
 tinyhouse-client-deployment-58f46df7bb-l88fb   1/1     Running   0          49m
 tinyhouse-mongo-deployment-84b444d875-62f4x    1/1     Running   0          49m
@@ -970,6 +976,8 @@ $ npm run codegen:generate
 ```
 
 I have an issue with
+
+<br/>
 
 ```
 import {FormComponentProps} from 'antd/lib/form/Form';
