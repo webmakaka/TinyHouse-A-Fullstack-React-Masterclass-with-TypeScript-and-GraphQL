@@ -24,10 +24,12 @@ export interface IBookingsIndexYear {
 export interface IBookingsIndex {
   [key: string]: IBookingsIndexYear;
 }
+
 export interface IBooking {
   _id: ObjectId;
   listing: ObjectId;
   tenant: string;
+  checkIn: string;
   checkOut: string;
 }
 

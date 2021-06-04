@@ -1002,6 +1002,26 @@ $ npm install cloudinary
 
 <br/>
 
+## Module 13
+
+<br/>
+
+### 77. Module 13 Introduction
+
+<br/>
+
+### 78. CreateBooking GraphQL Fields
+
+<br/>
+
+### 79. Building the CreateBooking Resolver
+
+<br/>
+
+### 80. Resolving the BookingsIndex of a Listing
+
+<br/>
+
 ---
 
 <br/>

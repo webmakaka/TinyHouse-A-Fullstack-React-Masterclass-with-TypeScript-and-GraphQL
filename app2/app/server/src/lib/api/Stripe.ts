@@ -18,4 +18,23 @@ export const Stripe = {
 
     return response;
   },
+  charge: async (amount: number, source: string, stripeAccount: string) => {
+    /* eslint-disable @typescript-eslint/camelcase */
+    const res = await client.charges.create(
+      {
+        amount,
+        currency: 'usd',
+        source,
+        application_fee_amount: Math.round(amount * 0.05),
+      },
+      {
+        stripe_account: stripeAccount,
+      }
+    );
+    /* eslint-enable @typescript-eslint/camelcase */
+
+    if (res.status !== 'succeeded') {
+      throw new Error('[App] failed to create with Stripe');
+    }
+  },
 };
