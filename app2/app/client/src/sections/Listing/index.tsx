@@ -6,6 +6,7 @@ import {
   Listing as ListingData,
   ListingVariables,
 } from 'lib/graphql/queries/Listing/__generated__/Listing';
+import { IViewer } from 'lib/types';
 import { Moment } from 'moment';
 import { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
@@ -15,6 +16,9 @@ import {
   ListingDetails,
 } from 'sections/Listing/components';
 
+interface IProps {
+  viewer: IViewer;
+}
 interface IMatchParams {
   id: string;
 }
@@ -22,7 +26,10 @@ interface IMatchParams {
 const { Content } = Layout;
 const PAGE_LIMIT = 3;
 
-export const Listing = ({ match }: RouteComponentProps<IMatchParams>) => {
+export const Listing = ({
+  viewer,
+  match,
+}: IProps & RouteComponentProps<IMatchParams>) => {
   const [bookingsPage, setBookingsPage] = useState(1);
   const [checkInDate, setCheckInDate] = useState<Moment | null>(null);
   const [checkOutDate, setCheckOutDate] = useState<Moment | null>(null);
@@ -73,7 +80,10 @@ export const Listing = ({ match }: RouteComponentProps<IMatchParams>) => {
 
   const listingCreateBookingElement = listing ? (
     <ListingCreateBooking
+      viewer={viewer}
+      host={listing.host}
       price={listing.price}
+      bookingsIndex={listing.bookingsIndex}
       checkInDate={checkInDate}
       checkOutDate={checkOutDate}
       setCheckInDate={setCheckInDate}

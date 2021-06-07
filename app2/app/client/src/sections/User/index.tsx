@@ -16,7 +16,7 @@ interface IProps {
   setViewer: (viewer: IViewer) => void;
 }
 
-interface MatchParams {
+interface IMatchParams {
   id: string;
 }
 
@@ -27,7 +27,7 @@ export const User = ({
   viewer,
   setViewer,
   match,
-}: IProps & RouteComponentProps<MatchParams>) => {
+}: IProps & RouteComponentProps<IMatchParams>) => {
   const [listingsPage, setListingsPage] = useState(1);
   const [bookingsPage, setBookingsPage] = useState(1);
 

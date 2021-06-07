@@ -128,14 +128,17 @@ const App = () => {
             path="/host"
             render={(props) => <Host {...props} viewer={viewer} />}
           />
-          <Route exact path="/listing/:id" component={Listing} />
+          <Route
+            exact
+            path="/listing/:id"
+            render={(props) => <Listing {...props} viewer={viewer} />}
+          />
           <Route exact path="/listings/:location?" component={Listings} />
           <Route
             exact
             path="/login"
             render={(props) => <Login {...props} setViewer={setViewer} />}
           />
-
           <Route
             exact
             path="/stripe"

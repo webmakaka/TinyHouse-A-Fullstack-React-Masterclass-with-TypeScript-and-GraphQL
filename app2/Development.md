@@ -1022,6 +1022,10 @@ $ npm install cloudinary
 
 <br/>
 
+### 81. Disabling booked dates on the client
+
+<br/>
+
 ---
 
 <br/>

@@ -15,7 +15,7 @@ import {
   ListingsSkeleton,
 } from 'sections/Listings/components';
 
-interface MatchParams {
+interface IMatchParams {
   location: string;
 }
 
@@ -24,7 +24,7 @@ const { Paragraph, Text, Title } = Typography;
 
 const PAGE_LIMIT = 8;
 
-export const Listings = ({ match }: RouteComponentProps<MatchParams>) => {
+export const Listings = ({ match }: RouteComponentProps<IMatchParams>) => {
   const locationRef = useRef(match.params.location);
   const [filter, setFilter] = useState(ListingsFilter.PRICE_LOW_TO_HIGH);
 
