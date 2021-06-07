@@ -1026,6 +1026,14 @@ $ npm install cloudinary
 
 <br/>
 
+### 82. Creating the Booking Confirmation Modal
+
+<br/>
+
+![Application](/img/pic-m13-p01.png?raw=true)
+
+<br/>
+
 ---
 
 <br/>

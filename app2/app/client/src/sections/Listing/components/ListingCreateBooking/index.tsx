@@ -16,6 +16,7 @@ interface IProps {
   checkOutDate: Moment | null;
   setCheckInDate: (checkInDate: Moment | null) => void;
   setCheckOutDate: (checkOutDate: Moment | null) => void;
+  setModalVisible: (modalVisible: boolean) => void;
 }
 
 export const ListingCreateBooking = ({
@@ -27,6 +28,7 @@ export const ListingCreateBooking = ({
   checkOutDate,
   setCheckInDate,
   setCheckOutDate,
+  setModalVisible,
 }: IProps) => {
   const bookingsIndexJSON: IBookingsIndex = JSON.parse(bookingsIndex);
 
@@ -137,6 +139,7 @@ export const ListingCreateBooking = ({
           type="primary"
           className="listing-booking__card-cta"
           disabled={buttonDisabled}
+          onClick={() => setModalVisible(true)}
         >
           Request to book!
         </Button>

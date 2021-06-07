@@ -13,6 +13,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import {
   ListingBookings,
   ListingCreateBooking,
+  ListingCreateBookingModal,
   ListingDetails,
 } from 'sections/Listing/components';
 
@@ -33,6 +34,7 @@ export const Listing = ({
   const [bookingsPage, setBookingsPage] = useState(1);
   const [checkInDate, setCheckInDate] = useState<Moment | null>(null);
   const [checkOutDate, setCheckOutDate] = useState<Moment | null>(null);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const { loading, data, error } = useQuery<ListingData, ListingVariables>(
     LISTING,
@@ -78,6 +80,17 @@ export const Listing = ({
     />
   ) : null;
 
+  const listingCreateBookingModalElement =
+    listing && checkInDate && checkOutDate ? (
+      <ListingCreateBookingModal
+        price={listing.price}
+        modalVisible={modalVisible}
+        checkInDate={checkInDate}
+        checkOutDate={checkOutDate}
+        setModalVisible={setModalVisible}
+      />
+    ) : null;
+
   const listingCreateBookingElement = listing ? (
     <ListingCreateBooking
       viewer={viewer}
@@ -88,6 +101,7 @@ export const Listing = ({
       checkOutDate={checkOutDate}
       setCheckInDate={setCheckInDate}
       setCheckOutDate={setCheckOutDate}
+      setModalVisible={setModalVisible}
     />
   ) : null;
 
@@ -102,6 +116,7 @@ export const Listing = ({
           {listingCreateBookingElement}
         </Col>
       </Row>
+      {listingCreateBookingModalElement}
     </Content>
   );
 };
