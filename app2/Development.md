@@ -1034,6 +1034,17 @@ $ npm install cloudinary
 
 <br/>
 
+### 83. Displaying the Payment Form with React Stripe Elements
+
+https://github.com/stripe/react-stripe-elements
+
+<br/>
+
+    $ cd client
+    $ npm install react-stripe-elements @types/react-stripe-elements
+
+<br/>
+
 ---
 
 <br/>

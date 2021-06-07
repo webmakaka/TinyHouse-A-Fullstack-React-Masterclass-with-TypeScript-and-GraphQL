@@ -13,8 +13,8 @@ import { RouteComponentProps } from 'react-router-dom';
 import {
   ListingBookings,
   ListingCreateBooking,
-  ListingCreateBookingModal,
   ListingDetails,
+  WrappedListingCreateBookingModal as ListingCreateBookingModal,
 } from 'sections/Listing/components';
 
 interface IProps {
