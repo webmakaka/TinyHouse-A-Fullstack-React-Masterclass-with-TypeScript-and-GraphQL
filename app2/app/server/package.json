@@ -12,7 +12,7 @@
     "graphql": "^15.5.0",
     "lodash.merge": "^4.6.2",
     "mongodb": "^3.6.9",
-    "stripe": "^8.153.0"
+    "stripe": "^8.154.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
@@ -21,10 +21,10 @@
     "@types/graphql": "^14.5.0",
     "@types/lodash.merge": "^4.6.6",
     "@types/mongodb": "^3.6.17",
-    "@types/node": "^15.12.1",
+    "@types/node": "^15.12.2",
     "@types/stripe": "^8.0.417",
-    "@typescript-eslint/eslint-plugin": "^4.26.0",
-    "@typescript-eslint/parser": "^4.26.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
     "dotenv": "^10.0.0",
     "eslint": "^7.28.0",
     "nodemon": "^2.0.7",

@@ -16,7 +16,7 @@ interface IProps {
   viewer: IViewer;
   viewerIsUser: boolean;
   setViewer: (viewer: IViewer) => void;
-  handleUserRefetch: () => void;
+  handleUserRefetch: () => Promise<void>;
 }
 
 const stripeAuthUrl = `https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${process.env.REACT_APP_STRIPE_CONNECT_CLIENT_ID}&scope=read_write&redirect_uri=https://tinyhouse.dev`;

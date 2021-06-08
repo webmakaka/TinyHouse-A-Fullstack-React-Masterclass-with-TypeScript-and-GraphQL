@@ -1045,6 +1045,16 @@ https://github.com/stripe/react-stripe-elements
 
 <br/>
 
+### 84. Executing the CreateBooking Mutation
+
+```
+$ cd client
+$ npm run codegen:schema
+$ npm run codegen:generate
+```
+
+<br/>
+
 ---
 
 <br/>
