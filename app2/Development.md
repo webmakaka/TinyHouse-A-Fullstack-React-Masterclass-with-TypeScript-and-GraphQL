@@ -1091,6 +1091,10 @@ $ npm run codegen:generate
 
 <br/>
 
+### 92. Apollo Client & FetchPolicy
+
+<br/>
+
 ---
 
 <br/>

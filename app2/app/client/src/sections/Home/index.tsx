@@ -32,6 +32,7 @@ export const Home = ({ history }: RouteComponentProps) => {
         limit: PAGE_LIMIT,
         page: PAGE_NUMBER,
       },
+      fetchPolicy: 'cache-and-network',
     }
   );
   const onSearch = (value: string) => {
