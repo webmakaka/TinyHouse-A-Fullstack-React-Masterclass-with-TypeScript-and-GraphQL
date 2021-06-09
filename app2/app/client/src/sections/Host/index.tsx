@@ -134,7 +134,7 @@ export const Host = ({ viewer }: IProps) => {
   }
 
   if (data && data.hostListing) {
-    return <Redirect to={'/listing/${data.hostListing.id}'} />;
+    return <Redirect to={`/listing/${data.hostListing.id}`} />;
   }
 
   return (
