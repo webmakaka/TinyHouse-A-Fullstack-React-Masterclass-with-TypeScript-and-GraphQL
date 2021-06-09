@@ -1055,6 +1055,42 @@ $ npm run codegen:generate
 
 <br/>
 
+### 85. Module 13 Summary
+
+<br/>
+
+## Module 14 [Heroku Deploy. Not Interesting for me. Skipped]
+
+<br/>
+
+### 86. Module 14 Introduction
+
+<br/>
+
+### 87. Cloud Computing
+
+<br/>
+
+### 88. Deploying with Heroku
+
+<br/>
+
+### 89. Walkthrough of Deployed App
+
+<br/>
+
+## Module 15
+
+<br/>
+
+### 90. Module 15 Introduction
+
+<br/>
+
+### 91. The NotFound Page
+
+<br/>
+
 ---
 
 <br/>
