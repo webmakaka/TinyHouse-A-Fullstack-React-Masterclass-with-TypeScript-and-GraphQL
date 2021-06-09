@@ -5,6 +5,7 @@ import {
   ConnectStripe as ConnectStripeData,
   ConnectStripeVariables,
 } from 'lib/graphql/mutations/ConnectStripe/__generated__/ConnectStripe';
+import { useScrollToTop } from 'lib/hooks';
 import { IViewer } from 'lib/types';
 import { displaySuccessNotification } from 'lib/utils';
 import { useEffect, useRef } from 'react';
@@ -38,6 +39,8 @@ export const Stripe = ({
   });
 
   const connectStripeRef = useRef(connectStripe);
+
+  useScrollToTop();
 
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');

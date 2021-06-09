@@ -8,6 +8,7 @@ import {
 } from 'lib/graphql/mutations/LogIn/__generated__/LogIn';
 import { AUTH_URL } from 'lib/graphql/queries/AuthUrl';
 import { AuthUrl as AuthUrlData } from 'lib/graphql/queries/AuthUrl/__generated__/AuthUrl';
+import { useScrollToTop } from 'lib/hooks';
 import { IViewer } from 'lib/types';
 import { displayErrorMessage, displaySuccessNotification } from 'lib/utils';
 import { useEffect, useRef } from 'react';
@@ -24,18 +25,22 @@ const { Text, Title } = Typography;
 export const Login = ({ setViewer }: Props) => {
   const client = useApolloClient();
 
-  const [logIn, { data: logInData, loading: logInLoading, error: logInError }] =
-    useMutation<LogInData, LogInVariables>(LOG_IN, {
-      onCompleted: (data) => {
-        if (data && data.logIn && data.logIn.token) {
-          setViewer(data.logIn);
-          sessionStorage.setItem('token', data.logIn.token);
-          displaySuccessNotification("You've successfully logged in!");
-        }
-      },
-    });
+  const [
+    logIn,
+    { data: logInData, loading: logInLoading, error: logInError },
+  ] = useMutation<LogInData, LogInVariables>(LOG_IN, {
+    onCompleted: (data) => {
+      if (data && data.logIn && data.logIn.token) {
+        setViewer(data.logIn);
+        sessionStorage.setItem('token', data.logIn.token);
+        displaySuccessNotification("You've successfully logged in!");
+      }
+    },
+  });
 
   const logInRef = useRef(logIn);
+
+  useScrollToTop();
 
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');

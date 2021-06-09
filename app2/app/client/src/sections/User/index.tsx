@@ -6,6 +6,7 @@ import {
   User as UserData,
   UserVariables,
 } from 'lib/graphql/queries/User/__generated__/User';
+import { useScrollToTop } from 'lib/hooks';
 import { IViewer } from 'lib/types';
 import { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
@@ -43,6 +44,8 @@ export const User = ({
       fetchPolicy: 'cache-and-network',
     }
   );
+
+  useScrollToTop();
 
   const handleUserRefetch = async () => {
     await refetch();

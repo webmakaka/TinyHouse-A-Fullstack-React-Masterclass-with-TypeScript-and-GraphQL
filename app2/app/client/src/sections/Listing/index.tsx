@@ -6,6 +6,7 @@ import {
   Listing as ListingData,
   ListingVariables,
 } from 'lib/graphql/queries/Listing/__generated__/Listing';
+import { useScrollToTop } from 'lib/hooks';
 import { IViewer } from 'lib/types';
 import { Moment } from 'moment';
 import { useState } from 'react';
@@ -46,6 +47,8 @@ export const Listing = ({
       limit: PAGE_LIMIT,
     },
   });
+
+  useScrollToTop();
 
   const clearBookingData = () => {
     setModalVisible(false);
