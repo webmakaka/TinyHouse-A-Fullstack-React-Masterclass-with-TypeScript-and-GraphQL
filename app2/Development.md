@@ -1099,6 +1099,14 @@ $ npm run codegen:generate
 
 <br/>
 
+### 94. React Router Hooks
+
+<br/>
+
+### 95. Disconnecting from Stripe & Revoking Access
+
+<br/>
+
 ---
 
 <br/>

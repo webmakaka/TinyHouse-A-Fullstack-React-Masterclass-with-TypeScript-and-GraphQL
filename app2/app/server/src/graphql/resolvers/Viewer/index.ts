@@ -218,8 +218,15 @@ export const viewerResolvers: IResolvers = {
           throw new Error('[App] viewer cannot be found');
         }
 
+        const wallet = await Stripe.disconnect(viewer.walletId as string);
+
+        if (!wallet) {
+          throw new Error('[App] stripe disconnect error');
+        }
+
         const updateRes = await db.users.findOneAndUpdate(
           { _id: viewer._id },
+          // { $set: { walletId: null } },
           { $set: { walletId: undefined } },
           { returnOriginal: false }
         );
