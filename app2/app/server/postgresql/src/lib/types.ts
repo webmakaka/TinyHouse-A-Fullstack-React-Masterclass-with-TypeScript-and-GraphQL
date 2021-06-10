@@ -1,10 +1,11 @@
-import { Collection, ObjectId } from 'mongodb';
+import { BookingEntity, ListingEntity, UserEntity } from 'database/entity';
+import { Repository } from 'typeorm';
 
 export interface IViewer {
-  _id?: string;
+  id?: string;
   token?: string;
   avatar?: string;
-  walletId?: string;
+  walletId?: string | null;
   didRequest: boolean;
 }
 
@@ -26,15 +27,15 @@ export interface IBookingsIndex {
 }
 
 export interface IBooking {
-  _id: ObjectId;
-  listing: ObjectId;
+  id: string;
+  listing: string;
   tenant: string;
   checkIn: string;
   checkOut: string;
 }
 
 export interface IListing {
-  _id: ObjectId;
+  id: string;
   title: string;
   description: string;
   image: string;
@@ -44,7 +45,7 @@ export interface IListing {
   country: string;
   admin: string;
   city: string;
-  bookings: ObjectId[];
+  bookings: string[];
   bookingsIndex: IBookingsIndex;
   price: number;
   numOfGuests: number;
@@ -52,20 +53,20 @@ export interface IListing {
 }
 
 export interface IUser {
-  _id: string;
+  id: string;
   token: string;
   name: string;
   avatar: string;
   contact: string;
-  walletId?: string;
+  walletId?: string | null;
   income: number;
-  bookings: ObjectId[];
-  listings: ObjectId[];
+  bookings: string[];
+  listings: string[];
   authorized?: boolean;
 }
 
 export interface IDatabase {
-  bookings: Collection<IBooking>;
-  listings: Collection<IListing>;
-  users: Collection<IUser>;
+  bookings: Repository<BookingEntity>;
+  listings: Repository<ListingEntity>;
+  users: Repository<UserEntity>;
 }

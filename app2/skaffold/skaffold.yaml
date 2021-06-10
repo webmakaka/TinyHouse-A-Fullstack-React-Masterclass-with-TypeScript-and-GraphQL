@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta16
+apiVersion: skaffold/v2beta17
 kind: Config
 build:
   local:
@@ -15,7 +15,7 @@ build:
           - src: 'src/**/*.ts*'
             dest: .
     - image: webmakaka/tinyhouse-server-app2
-      context: ../app/server
+      context: ../app/server/mongodb
       docker:
         dockerfile: Dockerfile.dev
       sync:

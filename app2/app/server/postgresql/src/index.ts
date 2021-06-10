@@ -5,6 +5,7 @@ import { ApolloServer } from 'apollo-server-express';
 import cookieParser from 'cookie-parser';
 import { connectDatabase } from 'database';
 import express, { Application } from 'express';
+import 'reflect-metadata';
 import { resolvers, typeDefs } from './graphql';
 
 // const allowUnauthorized = process.env.NODE_TLS_REJECT_UNAUTHORIZED === '0';
@@ -13,10 +14,6 @@ import { resolvers, typeDefs } from './graphql';
 const envChecks = () => {
   if (!process.env.GRAPHQL_PORT) {
     throw new Error('[APP]: GRAPHQL_PORT must be defined');
-  }
-
-  if (!process.env.MONGO_URI) {
-    throw new Error('[APP]: MONGO_URI must be defined');
   }
 
   if (!process.env.PUBLIC_URL) {

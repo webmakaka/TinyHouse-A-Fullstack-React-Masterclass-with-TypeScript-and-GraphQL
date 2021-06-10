@@ -51,3 +51,7 @@ export interface IHostListingInput {
 export interface IHostListingArgs {
   input: IHostListingInput;
 }
+
+export interface IOrder {
+  price: 1 | 'ASC' | 'DESC' | -1 | undefined;
+}

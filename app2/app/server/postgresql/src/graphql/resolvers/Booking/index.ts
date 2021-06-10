@@ -1,10 +1,10 @@
 import { IResolvers } from 'apollo-server-express';
+import crypto from 'crypto';
 import { Request } from 'express';
 import { ICreateBookingArgs } from 'graphql/resolvers/Booking/types';
 import { Stripe } from 'lib/api';
-import { IBooking, IBookingsIndex, IDatabase, IListing } from 'lib/types';
+import { IBooking, IBookingsIndex, IDatabase } from 'lib/types';
 import { authorize } from 'lib/utils';
-import { ObjectId } from 'mongodb';
 
 const millisecondsPerDay = 86400000;
 
@@ -60,15 +60,13 @@ export const bookingResolvers: IResolvers = {
           throw new Error('[App] viewer cannot be found');
         }
 
-        const listing = await db.listings.findOne({
-          _id: new ObjectId(id),
-        });
+        const listing = await db.listings.findOne({ id });
 
         if (!listing) {
           throw new Error('[App] listing cannot be found');
         }
 
-        if (listing.host === viewer._id) {
+        if (listing.host === viewer.id) {
           throw new Error('[App] cannot book own listing');
         }
 
@@ -110,8 +108,9 @@ export const bookingResolvers: IResolvers = {
             1);
 
         const host = await db.users.findOne({
-          _id: listing.host,
+          id: listing.host,
         });
+
         if (!host || !host.walletId) {
           throw new Error(
             '[App] the host either cannot be found or is not connected with Stripe'
@@ -120,43 +119,25 @@ export const bookingResolvers: IResolvers = {
 
         await Stripe.charge(totalPrice, source, host.walletId);
 
-        const insertRes = await db.bookings.insertOne({
-          _id: new ObjectId(),
-          listing: listing._id,
-          tenant: viewer._id,
+        const newBooking: IBooking = {
+          id: crypto.randomBytes(16).toString('hex'),
+          listing: listing.id,
+          tenant: viewer.id,
           checkIn,
           checkOut,
-        });
+        };
 
-        const insertedBooking: IBooking = insertRes.ops[0];
+        const insertedBooking = await db.bookings.create(newBooking).save();
 
-        await db.users.updateOne(
-          {
-            _id: host._id,
-          },
-          {
-            $inc: { income: totalPrice },
-          }
-        );
+        host.income = host.income + totalPrice;
+        await host.save();
 
-        await db.users.updateOne(
-          {
-            _id: viewer._id,
-          },
-          {
-            $push: { bookings: insertedBooking._id },
-          }
-        );
+        viewer.bookings.push(insertedBooking.id);
+        await viewer.save();
 
-        await db.listings.updateOne(
-          {
-            _id: listing._id,
-          },
-          {
-            $set: { bookingsIndex },
-            $push: { bookings: insertedBooking._id },
-          }
-        );
+        listing.bookingsIndex = bookingsIndex;
+        listing.bookings.push(insertedBooking.id);
+        await listing.save();
 
         return insertedBooking;
       } catch (error) {
@@ -167,19 +148,12 @@ export const bookingResolvers: IResolvers = {
     },
   },
   Booking: {
-    id: (booking: IBooking): string => {
-      return booking._id.toString();
-    },
-    listing: (
-      booking: IBooking,
-      _args: {},
-      { db }: { db: IDatabase }
-    ): Promise<IListing | null> => {
-      return db.listings.findOne({ _id: booking.listing });
+    listing: (booking: IBooking, _args: {}, { db }: { db: IDatabase }) => {
+      return db.listings.findOne({ id: booking.listing });
     },
     tenant: (booking: IBooking, args: {}, { db }: { db: IDatabase }) => {
       return db.users.findOne({
-        _id: booking.tenant,
+        id: booking.tenant,
       });
     },
   },

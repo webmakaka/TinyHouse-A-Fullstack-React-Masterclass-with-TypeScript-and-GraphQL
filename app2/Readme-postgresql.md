@@ -19,74 +19,32 @@ https://github.com/typeorm/typeorm
 
 <br/>
 
-    $ npm run seed
-    $ npm run start
+```
+$ npm run seed
+$ npm run start
+```
+
+<br/>
+
+```
+CREATE INDEX location_index ON public.listings (country, admin, city);
+```
 
 <br/>
 
 http://localhost:3000/api
 
-```
-query{
-  listings{
-    id,
-  	title,
-    image,
-    address,
-    price,
-    numOfGuests,
-    numOfBeds,
-    numOfBaths,
-    rating
-  }
-}
-```
+<br/>
 
-OK!
-
-```
-query($id: ID!){
-  listing(id: $id) {
-    id,
-  	title,
-    image,
-    address,
-    price,
-    numOfGuests,
-    numOfBeds,
-    numOfBaths,
-    rating
-  }
-}
-```
+Frontend. Possible need to update uri to:
 
 <br/>
 
 ```
-{
-  "id": "608cab1c6229455e8df0896ec344d386"
-}
+const httpLink = createHttpLink({
+  uri: 'http://localhost:3000/api',
+});
 ```
-
-OK
-
-```
-mutation{
-  createListing{
-    id,
-  	title,
-    image,
-    address,
-    price,
-    numOfGuests,
-    numOfBeds,
-    numOfBaths,
-    rating
-  }
-}
-```
-
-OK
 
 <br/>
 

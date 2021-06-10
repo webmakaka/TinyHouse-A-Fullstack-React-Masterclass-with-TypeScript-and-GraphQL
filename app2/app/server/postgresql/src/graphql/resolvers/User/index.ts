@@ -18,7 +18,7 @@ export const userResolvers: IResolvers = {
       { db, req }: { db: IDatabase; req: Request }
     ): Promise<IUser> => {
       try {
-        const user = await db.users.findOne({ _id: id });
+        const user = (await db.users.findOne({ id })) as IUser;
 
         if (!user) {
           throw new Error("[APP]: User can't be found");
@@ -26,9 +26,10 @@ export const userResolvers: IResolvers = {
 
         const viewer = await authorize(db, req);
 
-        if (viewer && viewer._id === user._id) {
+        if (viewer && viewer.id === user.id) {
           user.authorized = true;
         }
+
         return user;
       } catch (error) {
         throw new Error(`[APP]: Failed to query user: ${error}`);
@@ -36,9 +37,6 @@ export const userResolvers: IResolvers = {
     },
   },
   User: {
-    id: (user: IUser): string => {
-      return user._id;
-    },
     hasWallet: (user: IUser): boolean => {
       return Boolean(user.walletId);
     },
@@ -60,15 +58,13 @@ export const userResolvers: IResolvers = {
           result: [],
         };
 
-        let cursor = await db.bookings.find({
-          _id: { $in: user.bookings },
+        const bookings = await db.bookings.findByIds(user.bookings, {
+          skip: page > 0 ? (page - 1) * limit : 0,
+          take: limit,
         });
 
-        cursor = cursor.skip(page > 0 ? (page - 1) * limit : 0);
-        cursor = cursor.limit(limit);
-
-        data.total = await cursor.count();
-        data.result = await cursor.toArray();
+        data.total = user.bookings.length;
+        data.result = bookings;
 
         return data;
       } catch (error) {
@@ -86,15 +82,13 @@ export const userResolvers: IResolvers = {
           result: [],
         };
 
-        let cursor = await db.listings.find({
-          _id: { $in: user.listings },
+        const listings = await db.listings.findByIds(user.listings, {
+          skip: page > 0 ? (page - 1) * limit : 0,
+          take: limit,
         });
 
-        cursor = cursor.skip(page > 0 ? (page - 1) * limit : 0);
-        cursor = cursor.limit(limit);
-
-        data.total = await cursor.count();
-        data.result = await cursor.toArray();
+        data.total = user.listings.length;
+        data.result = listings;
 
         return data;
       } catch (error) {
