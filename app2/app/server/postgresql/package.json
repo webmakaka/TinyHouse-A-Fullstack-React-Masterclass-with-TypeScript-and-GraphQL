@@ -1,0 +1,46 @@
+{
+  "name": "tinyhouse-server",
+  "version": "0.1.0",
+  "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.1.16",
+    "apollo-server-express": "^2.25.1",
+    "body-parser": "^1.19.0",
+    "cloudinary": "^1.26.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "googleapis": "^75.0.0",
+    "graphql": "^15.5.0",
+    "lodash.merge": "^4.6.2",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
+    "stripe": "^8.154.0",
+    "typeorm": "^0.2.34"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.12",
+    "@types/graphql": "^14.5.0",
+    "@types/lodash.merge": "^4.6.6",
+    "@types/node": "^15.12.2",
+    "@types/stripe": "^8.0.417",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.28.0",
+    "nodemon": "^2.0.7",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  },
+  "scripts": {
+    "start": "NODE_PATH=./src nodemon src/index.ts",
+    "seed": "NODE_PATH=./src ts-node seed/seed.ts",
+    "clear": "NODE_PATH=./src ts-node seed/clear.ts",
+    "build": "NODE_PATH=./src tsc -p ./",
+    "lint": "NODE_PATH=./src eslint '**/*.ts'"
+  },
+  "volta": {
+    "node": "14.15.3",
+    "npm": "6.14.10"
+  }
+}
